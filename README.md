@@ -14,8 +14,8 @@ _Delft Students on Software Architecture_, a collection of 27 architectural desc
 
 [in4315]: http://www.studiegids.tudelft.nl/a101_displayCourse.do?course_id=38330
 
-In this course, teams of 3-4 students could adopt a project of choice on GitHub. 
-The projects selected had to be sufficiently complex and actively maintained (one or more pull requests merged per day). 
+In this course, teams of 3-4 students could adopt a project of choice on GitHub.
+The projects selected had to be sufficiently complex and actively maintained (one or more pull requests merged per day).
 The systems are from a wide range of domains, including testing frameworks ([Mockito], [JUnit5]), editors ([Neovim], [VSCode]), music ([Beets]), and visualisation ([Kibana]).
 
 [mockito]: http://site.mockito.org/
@@ -25,11 +25,11 @@ The systems are from a wide range of domains, including testing frameworks ([Moc
 [beets]: http://beets.io/
 [kibana]: https://www.elastic.co/products/kibana
 
-During a 8 week period, the students spent one third of their time on this course, and engaged with these systems in order to understand and describe their software architecture.
+During a 8-week period, the students spent one third of their time on this course, and engaged with these systems in order to understand and describe their software architecture.
 
 Inspired by Brown and Wilsons' [Architecture of Open Source Applications][aosa], we decided to organize each description as a chapter, resulting in the present online book.
 
-This book is the third in volume the DESOSA series: The [first DESOSA book][desosa2015] resulted from the 2015 edition of the course, and contained architectural descriptions of ten (different) open source systems. 
+This book is the third in volume the DESOSA series: The [first DESOSA book][desosa2015] resulted from the 2015 edition of the course, and contained architectural descriptions of ten (different) open source systems.
 The [second DESOSA book] followed a year later, including 21 architectural descriptions.
 
 [desosa2015]: https://delftswa.github.io/
@@ -37,21 +37,21 @@ The [second DESOSA book] followed a year later, including 21 architectural descr
 
 ## Recurring Themes
 
-The chapters share several common themes, which are based on smaller assignments the students conducted as part of the course. 
-These themes cover different architectural 'theories' as available on the web or in textbooks. 
+The chapters share several common themes, which are based on smaller assignments the students conducted as part of the course.
+These themes cover different architectural 'theories' as available on the web or in textbooks.
 The course used  Rozanski and Woods' [Software Systems Architecture][rw], and therefore several of their architectural [viewpoints] and [perspectives] recur.
 
 [viewpoints]: http://www.viewpoints-and-perspectives.info/home/viewpoints/
 [perspectives]: http://www.viewpoints-and-perspectives.info/home/perspectives/
 
-The first theme is outward looking, focusing on the use of the system. 
-Thus, many of the chapters contain an explicit [stakeholder analysis], as well as a description of the [context] in which the systems operate. 
+The first theme is outward looking, focusing on the use of the system.
+Thus, many of the chapters contain an explicit [stakeholder analysis], as well as a description of the [context] in which the systems operate.
 These were based on available online documentation, as well as on an analysis of open and recently closed issues for these systems.
 
 [context]: http://www.viewpoints-and-perspectives.info/home/viewpoints/context/
 [stakeholder analysis]: http://www.mindtools.com/pages/article/newPPM_07.htm
 
-A second theme involves the [development viewpoint][development], covering modules, layers, components, and their inter-dependencies. 
+A second theme involves the [development viewpoint][development], covering modules, layers, components, and their inter-dependencies.
 Furthermore, it addresses integration and testing processes used for the system under analysis.
 
 [development]: http://www.viewpoints-and-perspectives.info/home/viewpoints/
@@ -63,9 +63,10 @@ The students assessed the current debt in the systems and provided proposals on 
 
 ```
 TODO: Write this section. Collect all PRs and write a nice summary.
+TODO: Link to collaborative chapter when we are adding this.
 ```
 
-Last but not least, the chapters are also based on the student's experience in actually contributing to the systems described. 
+Last but not least, the chapters are also based on the student's experience in actually contributing to the systems described.
 As part of the course over 75 pull requests to the projects under study were made, including refactorings ([Ember 13088], [Rails 24198]), bug fixes ([Terasology 2235]), new features ([Karma 1983]), test cases ([Sonic-Pi 1054]), translations ([OpenTripPlanner 2232]), and documentation ([OpenCV 4375]).
 Many projects had issues explicitly marked as "good for new contributors", making it easier for students to find a good starting point.
 
@@ -81,7 +82,7 @@ Through these contributions the students often interacted with lead developers a
 
 ## Feedback
 
-While we worked hard on the chapters to the best of our abilities, there will be plenty of omissions and inaccuracies.
+While we worked hard on the chapters to the best of our abilities, there might always be omissions and inaccuracies.
 We value your feedback on any of the material in the book. For your feedback, you can:
 
 * Open an issue on our [GitHub repository for this book][dswa.io].
@@ -135,8 +136,8 @@ We would like to thank:
 The copyright of the chapters is with the authors of the chapters. All chapters are licensed under the [Creative Commons Attribution 4.0 International License][cc-by].
 Reuse of the material is permitted, provided adequate attribution (such as a link to the corresponding chapter on the [DESOSA book site][desosa]) is included.
 
-Cover image credits: 
-TU Delft library, TheSpeedX at [Wikimedia](https://commons.wikimedia.org/wiki/File:Library_TUDelft.jpg); 
+Cover image credits:
+TU Delft library, TheSpeedX at [Wikimedia](https://commons.wikimedia.org/wiki/File:Library_TUDelft.jpg);
 Owl on [Emojipedia Sample Image Collection](http://emojipedia.org/emojipedia/sample-images) at [Emojipedia](http://emojipedia.org/emojipedia/sample-images/owl);
 Feathers by [Franco Averta](http://www.flaticon.com/authors/franco-averta) at [Flaticon](http://flaticon.com).
 
