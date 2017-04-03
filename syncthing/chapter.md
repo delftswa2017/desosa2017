@@ -2,7 +2,7 @@
 <div id="figure1"></div>
 
 <p align="center">
-	<img src="/images-syncthing/syncthinglogo.png" alt="Syncthing" width="650"/>
+	<img src="./images-syncthing/syncthinglogo.png" alt="Syncthing" width="650"/>
 </p>
 
 # Syncthing: Open Source Continuous File Synchronisation
@@ -77,7 +77,7 @@ The influence various stakeholders have on the project can be seen in [Figure 1]
 
 <div id="figure1"></div>
 
-![](/images-syncthing/power-interest.jpg)
+![](./images-syncthing/power-interest.jpg)
 
 *Figure 1: Power interest diagram*
 
@@ -89,7 +89,7 @@ The context view describes the relationships, dependencies, and interactions bet
 <div id="figure2"></div>
 
 <p align="center">
-	<img src="/images-syncthing/context-view.jpg" alt="Context View" width="650"/>
+	<img src="./images-syncthing/context-view.jpg" alt="Context View" width="650"/>
 </p>
 
 *Figure 2: Visual representation of Syncthing’s context view*
@@ -103,7 +103,7 @@ There are multiple external entities that Syncthing interacts with. Analysing it
 The information view tracks the flow of information through the system. In this view, the flow of data during different stages of operation of Syncthing is explained.
 
 <p align="center">
-	<img src="/images-syncthing/information-flow.png" alt="Information Flow" width="650"/>
+	<img src="./images-syncthing/information-flow.png" alt="Information Flow" width="650"/>
 </p>
 
 *Figure 3: Information Flow diagram with 2 devices*
@@ -128,7 +128,7 @@ This stage is when the exchange of data takes place between the devices. The dev
 <div id="figure4"></div>
 
 <p align="center">
-	<img src="/images-syncthing/module_structure_model.png" alt="Structure Model" width="650"/>
+	<img src="./images-syncthing/module_structure_model.png" alt="Structure Model" width="650"/>
 </p> 
 
 *Figure 4: Syncthing's directory structure*
@@ -178,7 +178,7 @@ Codeline Model is used to keep an order when it comes to the organization of the
 #### Source code structure
 
 <p align="center">
-	<img src="/images-syncthing/directory-structure.jpg" alt="Directory Structure" width="650"/>
+	<img src="./images-syncthing/directory-structure.jpg" alt="Directory Structure" width="650"/>
 </p>
 
 *Figure 5: Syncthing's directory structure*
@@ -214,7 +214,7 @@ Touch points are defined as places where a user may interact with the system. A 
 <div id="figure6"></div>
 
 <p align="center">
-	<img src="/images-syncthing/UI_syncthing.PNG" alt="Syncthing UI" width="650"/>
+	<img src="./images-syncthing/UI_syncthing.PNG" alt="Syncthing UI" width="650"/>
 </p> 
 
 *Figure 6: Syncthing home screen*
@@ -272,7 +272,7 @@ Codebeat organizes its reports in three sections: Complexity, Code Issues and Du
 <div id="figure7"></div>
 
 <p align="center">
-	<img src="/images-syncthing/technical-debt-complexity.png" alt="Technical Debt Complexity" width="650"/>
+	<img src="./images-syncthing/technical-debt-complexity.png" alt="Technical Debt Complexity" width="650"/>
 </p> 
 
 *Figure 7: Fragment of namespaces ordered by complexity*
@@ -282,7 +282,7 @@ Codebeat organizes its reports in three sections: Complexity, Code Issues and Du
 <div id="figure8"></div>
 
 <p align="center">
-	<img src="/images-syncthing/technical-debt-code-issues.png" alt="Technical Debt Code Issues" width="650"/>
+	<img src="./images-syncthing/technical-debt-code-issues.png" alt="Technical Debt Code Issues" width="650"/>
 </p>
 
 *Figure 8: Fragment of namespaces ordered by code issues*
@@ -292,7 +292,7 @@ Codebeat organizes its reports in three sections: Complexity, Code Issues and Du
 <div id="figure9"></div>
 
 <p align="center">
-	<img src="/images-syncthing/technical-debt-duplication.png" alt="Technical Debt Duplication" width="650"/>
+	<img src="./images-syncthing/technical-debt-duplication.png" alt="Technical Debt Duplication" width="650"/>
 </p>
 
 *Figure 9: Fragment of namespaces ordered by duplication level*
@@ -308,7 +308,7 @@ Syncthing requires every contributor to include tests for both Minor commits - w
 <div id="figure10"></div>
 
 <p align="center">
-	<img src="/images-syncthing/coverage.PNG" alt="Code Coverage" width="650"/>
+	<img src="./images-syncthing/coverage.PNG" alt="Code Coverage" width="650"/>
 </p>
 
 *Figure 10: Code coverage results*
@@ -318,7 +318,7 @@ Furthermore Jenkins provides the code coverage results for each package in the a
 <div id="figure11"></div>
 
 <p align="center">
-	<img src="/images-syncthing/package-coverage.PNG" alt="Package Coverage" width="650"/>
+	<img src="./images-syncthing/package-coverage.PNG" alt="Package Coverage" width="650"/>
 </p>
 
 *Figure 11: Package-wise coverage results*
@@ -328,7 +328,7 @@ By drilling down further, we were able to analyse the code coverage results for 
 <div id="figure12"></div>
 
 <p align="center">
-	<img src="/images-syncthing/file-coverage.PNG" alt="File Coverage" width="650"/>
+	<img src="./images-syncthing/file-coverage.PNG" alt="File Coverage" width="650"/>
 </p>
 
 *Figure 12: Coverage results for files*
