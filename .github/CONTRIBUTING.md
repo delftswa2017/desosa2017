@@ -1,6 +1,6 @@
 # Contributing to DESOSA 2017
 
-To be able to contribute to this repository, fork this repository on your personal account and submit a pull request on your fork.
+To be able to contribute to this repository, fork this repository on your personal account and submit a pull request from your fork.
 To avoid conflicts when merging the chapters we kindly ask you to consider the following guidelines when submitting a chapter.
 
 ## Naming conventions
