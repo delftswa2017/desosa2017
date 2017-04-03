@@ -4,7 +4,7 @@
 
 _Delft University of Technology_
 
-![Arduino logo](images-arduino/ArduinoCommunityLogo.png "Arduino logo")
+![Team Arduino](images-arduino/Team-Arduino.png "Team Arduino")
 
 ## Abstract
 
