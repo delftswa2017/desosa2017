@@ -1,6 +1,6 @@
 # JabRef - A Graphical Application for Managing BibTeX Databases
 
-![logo](images-team-jabref/jabref_logo.png)
+![logo](images-jabref/jabref_logo.png)
 <br />
 [**Alborz Salimian Rizi**](https://github.com/Asalimianrizi), [**Owen Huang**](https://github.com/ohuang12), [**Rolf Starre**](https://github.com/RolfStarre), and [**Tim van Rossum**](https://github.com/TRvanRossum). <br />
 <br />
@@ -90,7 +90,7 @@ The diagram below in Figure [1](#figure1) shows the context view of JabRef.
 The context view diagram shows the external entities, as well as the most important stakeholders.
 In this section we will provide some short descriptions for some of the entities that have not been mentioned before or that require some additional explanation.
 
-<a name="figure1">![Context-diagram](images-team-jabref/context-view.png)</a> <br />
+<a name="figure1">![Context-diagram](images-jabref/context-view.png)</a> <br />
 *Figure 1: Context view of JabRef.*
 
 To help developing and maintaining the code JabRef uses a number of tools, these fall under the *code quality*.
@@ -126,7 +126,7 @@ The overall modular structure of JabRef is depicted in Figure [2](#figure2), whi
 - *Model:* The `Model` contains the most important data structures of the system. Among these components, the `EventBus` is one of the most important ones, as it allows modules outside the core of the system to interact upon changes happening inside the core. Moreover, the `Model` holds the data structure that stores the bibliography databases (containing entries, categorization of entries, user comments, etc.) the user in the end creates. The `Model` component only interacts with the `Logic` component and does not depend on any other module. Upon any change occurring in the sub-modules, the `Model` (and also the `UI`) will be updated accordingly. However, the logic behind several sub-components of the `Model` (`BibDatabases`, `BibEntries`, `Events`, and related aspects) is not always 'absolute'. This means that small parts related to the logic of these sub-components are found inside the `Model`, rather than in the `Logic` component. As a result, this clearly differs from the general MVC design.
 
 
-<a name="figure2">![development-view](images-team-jabref/dev-view.png)</a> <br />
+<a name="figure2">![development-view](images-jabref/dev-view.png)</a> <br />
 *Figure 2: Modular structure of JabRef with allowed dependencies between components.*
 
 ### Standardization of Design
@@ -200,7 +200,7 @@ However, there are also some green parts visible indicating components that are 
 
 To understand why the code is tested so badly, the sunburst can show what the code coverage is in specific packages. Using the previous analysis from the development view on the [major components](#refModOrg) of the system, we investigate the major components of the system in more detail: the `GUI`, `Logic`, and `Model`.
 In Figure [3](#figure3), we zoom into the GUI package and see that the whole sunburst is almost red. Similarly, we zoom into the Logic and Model package as well. We observe that these classes contain a lot more green areas, indicating that a lot more unit testing is done in these other two major components.
-<a name="figure3">![sunburst-gui-logic-model](images-team-jabref/gui-logic-model-sunburst.png)</a> <br />
+<a name="figure3">![sunburst-gui-logic-model](images-jabref/gui-logic-model-sunburst.png)</a> <br />
 *Figure 3: Sunbursts of the GUI, Logic, and Model package. Red indicates code covered for less than 70%, whereas code covered between 70% and 100% is a gradient from orange to green.*
 
 To see how much the GUI would affect the code coverage, we investigate how large the GUI component is compared to other parts of the system.
@@ -209,7 +209,7 @@ Moreover, we observe that only 3.43% of the GUI was tested, explaining why the c
 
 While the GUI is tested very badly, the other two major components have reasonable test coverage. The logic component, achieves a code coverage of 67.20%. The model component has a much higher test coverage of 79.17%.
 
-<a name="figure4">![codecov-fulloverview](images-team-jabref/codecov-fulloverview.PNG)</a> <br />
+<a name="figure4">![codecov-fulloverview](images-jabref/codecov-fulloverview.PNG)</a> <br />
 *Figure 4: Distribution of the size of all system's components with code coverage listed. The second column shows the total amount of code lines, the third shows the amount of lines covered, the fourth the amount of partial lines covered, and the fifth the amount of lines missed.*
 
 Naturally, Figures [3](#figure3) and [4](#figure4) lead to the question why it is the case that the GUI component is hardly tested.
@@ -221,7 +221,7 @@ While this percentage of code coverage seems acceptable, it calls for the need t
 Looking into an overview of the logic component in Figure [5](#figure5), we see that tests are generally covering most large packages around a similar code coverage percentage.
 To see why the largest package, `importer`, only achieves a 66.36% code coverage, we can continue going into the deeper layers of packages.
 
-<a name="figure5">![logic-fulloverview](images-team-jabref/logic-fulloverview.PNG)</a> <br />
+<a name="figure5">![logic-fulloverview](images-jabref/logic-fulloverview.PNG)</a> <br />
 *Figure 5: Top five largest packages of the code lines' distribution in the logic package.*
 
 Inside `importer` it becomes clear that the largest package, `fileformat`, is thoroughly tested.
@@ -251,7 +251,7 @@ The deployment view looks at parts of the system that are relevant once it has b
 It defines physical, computational, and software-based requirements for running the system.
 A diagram of the deployment view is given in Figure [6](#figure6).
 
-<a name="figure6">![deploy-view](images-team-jabref/Deployment-view-diagram.png)</a> <br />
+<a name="figure6">![deploy-view](images-jabref/Deployment-view-diagram.png)</a> <br />
 *Figure 6: A graphical overview of the deployment view. All individual parts will be explained in the deployment view.*
 
 First of all, JabRef is a Java program, and thus requires Java to be installed in order to be able to run.
