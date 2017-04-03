@@ -75,7 +75,7 @@ Users are those who eventually use the system. Several examples of users are Spo
 
 With the categorization of stakeholders in the method proposed by Rozanski & Woods \[2\], we can find relevant stakeholders for most categories. However, it is noticeable that many stakeholders appear in many different categories in some way. In this section, a new categorization of the stakeholders is introduced to make the categories more distinct and the roles less intertwined. This categorization is less generally applicable, since it's tailored to scikit-learn. The different categories are contributors, users, funders and competitors.
 
-![](/images-team-scikit-learn/stakeholder.jpg)  
+![](images-team-scikit-learn/stakeholder.jpg)  
 _Figure 1: Visualization of the stakeholder categories for scikit-learn._
 
 ### Contributors
@@ -110,7 +110,7 @@ Because of this complexity, they also need to handle their Integrators with extr
 
 Figure 2 shows the quadrants of power and interest of scikit-learn stakeholders. The x-axis determines interest of stakeholders to scikit-learn which is divided into low and high interest. The interest of stakeholders is demonstrated by their willingness to explore, use, or contribute to the library. Contributions could be in the form of funding or taking part in development. The y-axis determines the power of stakeholders which is also divided into low and high power. Power is related to how influential the stakeholder is in scikit-learn's past, current, and future development. Therefore, the most powerful entities are in the upper-right quadrant and the least powerful ones in the opposite lower-left quadrant. As an example, Andreas Müller is in the upper-right quadrant because he has been the release manager since 2016, which indicates his high interest and influence in the development process. On the other hand, David and Matthieu were founders of scikit-learn \[1\] but they are not active in the development any more. Thus, they are classified in the high interest and low power area.
 
-![](/images-team-scikit-learn/powerinterest.png)  
+![](images-team-scikit-learn/powerinterest.png)  
 _Figure 2: Power-Interest grid._
 
 # Views
@@ -129,7 +129,7 @@ Scikit-learn was developed to provide easier implementation of data analysis met
 
 Figure 3 describes the relationship between scikit-learn and its environment. It consists of ten external entity types which are related to scikit-learn. Each entity has a specific relationship to the library, for example users use scikit-learn or GitHub manages versioning and issue tracking for scikit-learn. Each specific entity inside an entity type may have a different weight of closeness to the library depending on their interactions, for example INRIA may have a stronger relation compared to Paris-Saclay Center for Data Science because they are still sponsoring scikit-learn at the time of writing.
 
-![](/images-team-scikit-learn/contextview_2.png)
+![](images-team-scikit-learn/contextview_2.png)
 
 _Figure 3: Context View._
 
@@ -148,7 +148,7 @@ The module structure model defines the organization of the system’s source cod
 * Build tool layer, which contains build modules \[37\] to build the library. Each module consists of files to download, install, testing, or setting the required library.
   Dependency of one layer to the other layer\(s\) is demonstrated by a dashed arrow which points to the destination of the required layer. As an example, the utility layer uses all libraries available from python, NumPy, SciPy, and Pandas by importing them in the module. In addition, there are explicit intermodule dependencies for all modules in the domain layer for python because all files under each module requires python. 
 
-![alt tag](/images-team-scikit-learn/modules_model.jpeg)  
+![alt tag](images-team-scikit-learn/modules_model.jpeg)  
 _Figure 4: Modules Structure Model._
 
 This model answers the first concern of Rozanski and Woods addressed by the development view \[2\] by giving a better understanding of the module organization. Each module consists of hundred, possibly thousands, of source files and even more lines of code, which are used to implement libraries or functional elements. As a software architect it is useful to know the generic view of a system before going too much into detail. By analyzing through this model, we understand better in which way scikit-learn has been managed and the depencies between modules are clearly highlighted. In this library, a module is usually representated by a folder in the sklearn directory\[9\].
@@ -159,7 +159,7 @@ Another good thing that can be inferred by this model is how to arrange code in 
 
 The deployment view is what looks into how the program is expected to operate in live operation. It will show what "hidden" dependencies scikit-learn has, it's runtime environment and lastly the required specialist knowledge for \(parts of\) scikit-learn.
 
-![alt tag](/images-team-scikit-learn/deployment_view.png)  
+![alt tag](images-team-scikit-learn/deployment_view.png)  
 _Figure 3A: the deployment view for scikit-learn_
 
 ### Dependencies
@@ -395,7 +395,7 @@ We found 76 occurrences of _TODO_ comments, spread out over 48 files. Four of th
 
 The following picture sums up how well this method works for discussing technical debt:
 
-![](/images-team-scikit-learn/FixMeSoon.PNG)  
+![](images-team-scikit-learn/FixMeSoon.PNG)  
 _Figure 16: “FIXME” comment added long ago, which is still present in the code now._
 
 ### Testing debt
@@ -408,13 +408,13 @@ The major contributors of scikit-learn have agreed upon approximately 90% covera
 
 We have also made a barplot where it is easier to see the different coverage scores for the different modules. We can identify the big difference of code coverage between the datasets module and the other modules.
 
-![](/images-team-scikit-learn/codecovw.jpg)
+![](images-team-scikit-learn/codecovw.jpg)
 
 _Figure 17: Code coverage about different modules ordered._
 
 In addition, the project of scikit-learn relies on integration testing services like Travis CI \[14\], circleci \[12\] and AppVeyor \[13\]. It is a common procedure of the scikit-learn testing procedure to report the results of tests on continuous integration \(CI\) platforms. We can see an example of successful and unsuccessful testing on a PR in the figure below. All PRs need to pass all five check tests from different CI platforms before it gets merged: ci/circleci, codecov/patch, codecov/project, continuous-integration/appveyor/pr, and continuous-integration/travis-ci/pr. Thus, all changes in scikit-learn are well-tested and it reduces the risk. Also, it helps the reviewers to make decisions about which PR should be merged and to give constructive advice to the authors in order to fix PR.
 
-![](/images-team-scikit-learn/integration.png)  
+![](images-team-scikit-learn/integration.png)  
 _Figure 18: Tests on different CI platforms._
 
 **Testing results on CI platforms.**
