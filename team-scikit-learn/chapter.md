@@ -4,7 +4,7 @@ By [N.Bakker](https://github.com/i-am-xhy), [R.Kharisnawan](https://github.com/r
 
 _Delft University of Technology, 2016_
 
-![](/images-team-scikit-learn/scikit-learn-logo.png)
+![](images-team-scikit-learn/scikit-learn-logo.png)
 
 ## _Abstract_ {#abstract}
 
