@@ -130,7 +130,7 @@ Common processing functionalities have been identified and isolated from the fea
 Some of the libraries can also be seen as common processing but the developers did not make these themselves but are merely using them.
 The following image is a visualisation of the aforementioned description:
 
-![common-processing](/images-team-sickrage/D2_common_processing.png)
+![common-processing](images-team-sickrage/D2_common_processing.png)
 *Figure 3: Common processing in SickRage*
 
 ### Design standardisation
@@ -168,7 +168,7 @@ In order to stay up to date with the master branch, SickRage has an automatic ch
 As can be seen in figure 4, all modules are interconnected.
 It can roughly be divided in 3 main layers and 2 side modules. The three main layers which together form the core of the system are the GUI layer, the platform layer and the libraries & database layer. The arrows between the modules show the interdependencies between them. The GUI layer is the front-end which shows the web application to the user, including all HTML, CSS, JavaScript files and images. The platform layer runs the actual application and makes sure that everything that is changed by the user in the web application is saved in the database. The database uses SQLite, which is why this is shown in the image. As is usual in a software system, libraries are also used. These libraries are all written in Python. Because there are many libraries we did not list them specifically inside the image. The 2 side modules consist of a testing and configuration module. The configuration model exists of scripts that change settings on Linux machines such that the system will run correctly. The tests exist for the Python scripts, but also for the GUI, databases and even for the configuration files.
 
-![D2_models](/images-team-sickrage/D2_models.jpg)
+![D2_models](images-team-sickrage/D2_models.jpg)
 *Figure 4: Modules of SickRage*
 
 ## Information View
