@@ -3,7 +3,7 @@
 **By [Daan Schipper](https://github.com/daanschipper), [Julian Faber](https://github.com/julianfx), [Rick Proost](https://github.com/rpjproost) and [Wim Spaargaren](https://github.com/wimspaargaren).**  
 *Delft University of Technology*
 
-<img src="./images-team-vscode/logo.png" width="400" />
+<img src="./images-vscode/logo.png" width="400" />
 
 [Visual Studio Code](https://code.visualstudio.com/) is a lightweight open source text editor developed under Microsoft and can be contributed to through the GitHub repository [`vscode`](https://github.com/microsoft/vscode).
 Extra functionality for Visual Studio Code is provided by means of extensions, which can also be developed by third party developers.
@@ -42,7 +42,7 @@ In this chapter, the Visual Studio Code environment is described in several diff
 This section gives an overview of the different features of Visual Studio Code.
 In Figure 1 an overview of the different features of Visual Studio Code can be found.
 
-<img src="./images-team-vscode/swa-feature-overview.png" width="500" />
+<img src="./images-vscode/swa-feature-overview.png" width="500" />
 
 _Figure 1: Visual Studio Code feature overview._
 
@@ -50,46 +50,25 @@ Out of the box, over 30 different [programming languages](https://code.visualstu
 For these languages Visual Studio Code provides syntax highlighting, auto-indention and code completion by using [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense). 
 IntelliSense includes a variety of code editing features such as code completion, parameter info, quick info and member lists which can be seen in Figure 2.
 
-<img src="./images-team-vscode/intellisense_intellisense_icons.png" width="400" />
+<img src="./images-vscode/intellisense_intellisense_icons.png" width="400" />
 
 _Figure 2: IntelliSense auto completion in Visual Studio Code._
 
-Visual Studio Code also provides an interactive [debugging tool](https://code.visualstudio.com/docs/editor/debugging), which makes users able to step through source code and inspect variables for example. 
-Visual Studio Code has [built-in debugging support](https://code.visualstudio.com/docs/editor/debugging#_debugger-extensions) for Node.js runtime and can debug JavaScript, Typescript and other languages which compile to Javascript source code. 
-For debugging other languages, extensions in the Visual Studio Code [Extensions Marketplace](https://marketplace.visualstudio.com/) should be installed. 
-The extensions of the Visual Studio Code Extensions Marketplace, will be discussed further in paragraph "numerous extensions". 
-After setting up the debugging tool as described on the Visual Studio Code [debugging page](https://code.visualstudio.com/docs/editor/debugging), the debugging tool looks as depicted in Figure 8. 
-A user can start debugging by pressing the "start debugging" (B) button. After pressing this button, "debug menu" (C) will appear. 
-This menu can be used to pause, step over, step in/out, restart or stop the debugging. 
-Also the "debug console panel" (D) and "debug side bar" (A) will appear after starting debugging. 
-D logs information in the debug console while A shows information about breakpoints, variables and call stacks.  
+Visual Studio Code also provides an interactive [debugging tool](https://code.visualstudio.com/docs/editor/debugging), which makes users able to step through source code and inspect variables for example. The debug screen can be seen in Figure 3.
 
-<center>
+<img src="./images-vscode/debugging_debugging_hero.png" width="600" />
 
-<img src="./images-team-vscode/debugging_debugging_hero.png" width="600" />
-
-<i>Figure 8: Debug support in Visual Studio Code.</i>
-
-</center>
+_Figure 3: Debug support in Visual Studio Code._
 
 Visual Studio Code also has integrated [Git](https://git-scm.com/) support, for the most common git commands. 
-In Figure 9 an overview of the git support is shown. The git icon indicates the number of changes a user has in it's current workspace. 
-After clicking this icon the screen will look as depicted in figure 9. Here the current git status is shown. By clicking changed items, Visual Studio Code will show a user textual changes within each file. 
-The status of the current repository is also shown in the bottom left corner of Visual Studio Code. From left to right it shows the current branch, dirty indicators and the number of incoming and outgoing commits of the current branch.
+In Figure 4 an overview of the git support is shown.
 
-<center>
+<img src="./images-vscode/versioncontrol_overview.png" width="600" />
 
-<img src="./images-team-vscode/versioncontrol_overview.png" width="600" />
+_Figure 4: Visual Studio Code git integration._
 
-<i>Figure 9: Visual Studio Code git integration.</i>
-
-</center>
-
-### Numerous extensions
-
-Third party developers can write extensions for Visual Studio Code to provide extra functionality to the core program. 
+Third party developers can also write extensions for Visual Studio Code to provide extra functionality to the core program. 
 These extensions can be installed by users through the [Extensions Marketplace](https://marketplace.visualstudio.com/). 
-This way users are able to, for instance, add extensions to support languages which are not originally supported by Visual Studio Code. 
 
 ## Stakeholders
 
@@ -140,13 +119,13 @@ In short, integrators will deal with importance, as well as feasibility of issue
 
 
 
-  <img src="./images-team-vscode/pull-request-flow.png" width = "80%">
+  <img src="./images-vscode/pull-request-flow.png" width = "80%">
 
-  <i>Figure 1: Pull-request workflow</i>
+  _Figure 5: Pull-request workflow_
 
 
 
-Figure 1 depicts the actual workflow of adding newly developed code to the project.
+Figure 5 depicts the actual workflow of adding newly developed code to the project.
 
 ### Integrators Visual Studio Code
 
@@ -169,13 +148,13 @@ The integrators at Visual Studio Code mostly have an idea on how a solution must
 
 The context view of a system defines the relationships, dependencies, and interactions between the system and its environment.
 The environment in the context are the people, the systems, and external entities with which the system interacts [[1](#references)].
-The context view diagram in Figure 2 shows the identified entities and in what way they relate to Visual Studio Code and each other.
+The context view diagram in Figure 6 shows the identified entities and in what way they relate to Visual Studio Code and each other.
 
 
 
-<img src="./images-team-vscode/contextviewdiagramv2.png" width="600" />
+<img src="./images-vscode/contextviewdiagramv2.png" width="600" />
 
-<i>Figure 2: Context view diagram</i>
+_Figure 6: Context view diagram_
 
 
 
@@ -200,13 +179,13 @@ An IDE like IntelliJ, for example, is not considered a competitor, since it is m
 This section describes the architecture that support the software development process, the way the code is structured and the standardization of design and testing.
 
 ### Module organization
-Visual Studio Code consists of a layered and modular core that can be extended using extensions as seen in Figure 3. Extensions are run in a separate process referred to as the extension host, which utilises the extension API.
+Visual Studio Code consists of a layered and modular core that can be extended using extensions as seen in Figure 7. Extensions are run in a separate process referred to as the extension host, which utilises the extension API.
 
 
 
-<img src="./images-team-vscode/development-view-overview.png" width="600" />
+<img src="./images-vscode/development-view-overview.png" width="600" />
 
-<i>Figure 3: Module organization </i>
+_Figure 7: Module organization_
 
 
 
@@ -286,21 +265,16 @@ The workbench layer hosts the [Monaco Editor](https://github.com/Microsoft/monac
 
 The common environment has one component, namely the editor. The different editor components implement the `baseTextEditorModel` from the `editor` module. Furthermore there are components like `panel`, `options` and `viewlet`. All of these components provide interfaces for common environment of the workbench.
 
-The electron-browser environment implements the actual GUI of the workbench, which is based on the Electron framework. An overview of this component is shown in figure 4. The `main` component fires up the workbench. First the `shell` component is called. The `shell` component contains the different components from which the actual workbench is build. The shell makes use of five components. 
+The electron-browser environment implements the actual GUI of the workbench, which is based on the Electron framework. An overview of this component is shown in figure 8. The `main` component fires up the workbench. First the `shell` component is called. The `shell` component contains the different components from which the actual workbench is build. The shell makes use of five components. 
 - `crashReporter`: handles the workbench in case of a crash.
 - `nodeCachedDataManager`: saves the settings of the workbench.
 - `command`: handles the different keybindings which can be use in the workbench.
 - `extensionHost`: handles the different extensions installed in the workbench.
 - `actions`: handles all sorts of actions which can be done in the workbench, such as zooming in/out, switching from window and opening a new window.
 
+<img src="./images-vscode/electron-browser.png" width="500" />
 
-
-<img src="./images-team-vscode/electron-browser.png" width="500" />
-
-<i>Figure 4: Workbench electron-browser component </i>
-
-
-
+_Figure 8: Workbench electron-browser component_
 
 The `parts` environment contains all components which together compose the Visual Studio Code workbench. There are at the moment of writing twenty eight different parts. Examples of parts are `git`, `search` and `output`.
 
@@ -340,15 +314,11 @@ In the development view the layers of Visual Studio Code were identified. One re
 
 #### Identifying testing debt
 
-At the moment of writing, 2832 unit tests are written for Visual Studio Code. The unit tests can be easily run through the command line, which takes about fourteen seconds to carry out. Visual Studio Code provides a way to generate a [coverage report](https://github.com/Microsoft/vscode/blob/master/test/README.md), as described on their wiki page. This coverage report generates an HTML website which include test coverage of every component. In Figure 5 the overall code coverage result is shown. 
+At the moment of writing, 2832 unit tests are written for Visual Studio Code. The unit tests can be easily run through the command line, which takes about fourteen seconds to carry out. Visual Studio Code provides a way to generate a [coverage report](https://github.com/Microsoft/vscode/blob/master/test/README.md), as described on their wiki page. This coverage report generates an HTML website which include test coverage of every component. In Figure 9 the overall code coverage result is shown. 
 
+<img src="./images-vscode/overall-coverage.png" width="500" />
 
-
-<img src="./images-team-vscode/overall-coverage.png" width="500" />
-
-<i>Figure 5: The overall code coverage of Visual Studio Code.</i>
-
-
+_Figure 9: The overall code coverage of Visual Studio Code._
 
 The generated [report](https://github.com/delftswa2017/team-vscode/tree/master/deliverables/d3/coverage) divides test quality in three different categories: `bad`, `medium` and `good`. At the moment of writing, the overall code coverage of Visual Studio Code has a medium code coverage.
 
@@ -450,9 +420,9 @@ For the practical testing a small script was written in Golang to generate a tex
 
 
 
-<img src="./images-team-vscode/ram-usage.png" width="400" />
+<img src="./images-vscode/ram-usage.png" width="400" />
 
-<img src="./images-team-vscode/startup-times.png" width="400" />
+<img src="./images-vscode/startup-times.png" width="400" />
 
 <i>Figure 6: RAM usage in MB and start-up times in seconds</i>
 
