@@ -21,12 +21,9 @@ Moreover, the performance of Visual Studio code is analysed, and lastly the incl
 - [Context view](#context-view)
 - [Development View](#development-view)
 - [Functional View](#functional-view)
+- [Performance and scalability](#performance-and-scalability)
 - [Conclusion](#conclusion)
 - [References](#references)
-- [Appendix A](#appendix-a)
-- [Appendix B](#appendix-b)
-- [Appendix C](#appendix-c)
-
 
 ## Introduction
 
@@ -80,7 +77,6 @@ Rozanski and Woods [[1](#references)] classify multiply stakeholders, the most i
 
 Developers are defined as the stakeholders who construct and deploy the system from specifications (or lead the team that do this). 
 The development teams located in Zürich and Redmond are the main developers of Visual Studio Code. 
-Unfortunately Visual Studio Code does not have an official page for who contributes to the project, therefore a list of potential developers has been extracted from the GitHub page, which can be found in Appendix [B](#appendix-b).
 These are the developers which can be assigned to issues and merge pull requests on the Microsoft Visual Studio Code GitHub repository. 
 The developers of Visual Studio Code try to process the issues on GitHub, which improves the program with new features or bug fixes.
 
@@ -130,7 +126,6 @@ Figure 5 depicts the actual workflow of adding newly developed code to the proje
 ### Integrators Visual Studio Code
 
 It is hard to really determine every integrator in the Visual Studio Code team, because everyone in the team can be assigned as reviewer. 
-The developer team list can be found in the Appendix [B](#appendix-b).
 Although everyone of them can review, not everyone of them can integrate or in other words merge. 
 The most interesting part found during the pull request analysis is that there are different integrators for different parts of the system. 
 The Visual Studio Code team also automated the assigning process of integrators to pull requests by having a bot analyze the history of the changed files.
@@ -416,19 +411,16 @@ The next practical tests are performed for performance measurement, all on the s
 - File-open time while VS Code is already open
 - RAM usage
 
-For the practical testing a small script was written in Golang to generate a text file with one million lines. This script can be found in Appendix [C](#appendix-c).
-
-
+For the practical testing a small script was written to generate a text file with one million lines.
 
 <img src="./images-vscode/ram-usage.png" width="400" />
 
 <img src="./images-vscode/startup-times.png" width="400" />
 
-<i>Figure 6: RAM usage in MB and start-up times in seconds</i>
+<i>Figure 10: RAM usage in MB and start-up times in seconds</i>
 
 
-
-Figure 6 depicts that the usage of RAM does not increase rapidly when opening big files. 
+Figure 10 depicts that the usage of RAM does not increase rapidly when opening big files. 
 A file with one million lines does not give that much of an impact on the memory of Visual Studio Code.
 For opening the file however there is a significant increase in loading time, from 0,39 seconds to 1.90. 
 Because developers open and edit many files in a project, this can be an important metric for the Visual Studio Code development team. Since improving these loading times ensures that the system does not slow down its users.
@@ -443,7 +435,7 @@ Processing is not really prioritized, but since Visual Studio Code depends on ce
 ## Conclusion
 
 The goal of this chapter was researching the open-source project Visual Studio Code and presenting a detailed description on the software architecture, aswell as the factors it depends on to be a success.
-These factors are determined in the development view, performance perspective, technical debt and by interviewing [@egamma](https://github.com/egamma).
+These factors are determined in the development view, performance perspective, technical debt and by interviewing [Erich Gamma](https://github.com/egamma).
 In the chapter is concluded that the architecture is divided in different layers and that continuous integration tools and linters are used for maintaining code quality. 
 Visual Studio Code development is driven by the community, prioritization of features comes from issue tracking and every week a feature is implemented and optimized by the internal development team.
 The chapter indicates the importance of a structured workflow that can ever be improved so that code quality can be maintained, even with many developers contributing. 
@@ -454,108 +446,3 @@ Visual Studio Code now has over four million users and delivers a new version ev
 ## References
 
 1. Nick Rozanski and Eoin Woods. 2011. Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives. Addison-Wesley Professional.
-
-## Appendix A
-
-This appendix contains the interview with Erich Gamma, the head of the development team of Visual Studio Code. 
-Erich Gamma worked on several other big software projects, like [JUnit](http://junit.org/) and [Eclipse](https://eclipse.org/).
-He also wrote a book on design patterns and played a big role of structuring Visual Studio Code.
-In the interview several topics are discussed like technical debt, open-source projects and competitors of Visual Studio Code.
-
-```
-Q.To describe the debt in the system we have looked at the amount of TODO's in the code, the issues labeled debt, and the test coverage.
-What do you think of this way to describe the debt and are there other ways to describe it?
-
-A.Technical debt is very important to us.
-Our development cycle is in four week iterations, in the first week of an iteration we do planning and debt reduction and at the end of an iteration it comes down to rushing features.
-So the week after an iteration you want to do it right, fix the features and address the technical debt.
-To track technical debt, one thing you can do is use @TODO in the code.
-The nice thing is that they are very easy to add, but they will stick in the code forever.
-The way we do it is that we track them as issues in gitbub with the prefix debt or the label debt, in the debt week we add them to the plan.
-Adding TODO's can work for personal use, but a lot of the debt spans multiple files, so adding it to every part is not feasible.
-Ideally when you are using a TODO you should add a timestamp and an owner, so you have some way of accountability. 
-For each iteration it is interesting to look if the TODO's go up or down, as an indication of technical debt.
-
-Q.How do you experience working with an open-source project on github and working with outside developers?
-Why did you decide to make the project open-source?
-
-A.The main cause was comittee pressure.
-If you want to do an editor you need two things: an extension story and you need to be open source.
-We started closed source for six months, but the communication was much harder, because the communication was one sided.
-Making the project open source enabled two-way communication.
-Every developer plans in two to three hours per day to go through issues and pull requests.
-This way provides a grip on the market and gives you useful feedback on the project.
-If people see you listen to feedback, it makes them want to provide more feedback and having transparency in plans, like having the roadmap on the wiki, enables feedback.
-There are two goals, you want to make the community happy and the employer happy, which you can accomplish by showing that you engage with the community.
-
-Q.Where do you see Visual Studio Code going? What is the roadmap for one or two years?
-
-A.We only do a 6 month planning.
-The point is that we want to make coding even more happy and by doing that make more users happy.
-Looking at the 2017 roadmap you can see that we want a good source control provider and provide the best extension ecosystem.
-The better we can support extensions, the more extensions we get, which makes us a stronger product.
-Extensions are very important to us, because they allow the community to make Visual Studio Code better.
-
-Q.What was the reason Visual Studio Code was created when there are quite some competitors?
-What in your eyes makes it different from these other editors?
-
-A.The entire thing mainly started as a startup project with five or six people in Zurich and now we are with eight.
-We started 5 years ago and were asking ourselves if we could do an IDE in the browser.
-After two years of development we had a full development environment runnning in the browser, called Monaco.
-When it comes to coding developers really want to have things run locally
-There were some similar editors, but what we wanted to do was something in between a full blown IDE and a text editor.
-The way we differ from other ones is that we keep the stuff we love from heavyweight IDE's and bring it into the editor.
-Another thing is that we make the editor available as a separate component that can run in the browser.
-
-Q.You recently had a bug with the blinking cursor on MacOS and there has been some discussion about this.
-Hasn't it gone too far to implement a web application and use it as a native application for different platforms?
-
-A.It mainly was an experiment to see if we could do this and if we could get traction, which it did.
-There are certainly trade-offs with implementing it as a web application, but there are also benefits.
-For example, with the DOM elements of the browser you can easily do things with the UI and it is also easier to make it cross-platform.
-There was a bug in chrome with css that did the calculation more times than the refresh rate, which we finally resolved by using javascript.
-Some eople want to have fancy cursors and you can use css to get this animation, but this gives you a certain trade-off in regard to the amount of calculations.
-The main reason why we survived doing such a large-scale javascript project is that we used typescript instead of regular javascript.
-
-Q.You have studied software engineering at the university and have also written a book about design patterns.
-How do you apply the theory in practice and how does the practical aspect differ from the theory that you have learned?
-
-A.The interesting thing is that the book is exactly the opposite.
-The book was not based on theory and then put into practice, it was written from practice and abstracted to theory.
-Instead of looking forward you look back to the past, by looking at what worked best in the past you can describe principles that you can use in the future to reduce mistakes.
-In my time there was not much open source code to look at, so I like the approach that you look the architecture of open source projects to learn from it.
-```
-
-
-## Appendix B
-Table table-devteam lists the development team of Visual Studio Code.
-
-| Integrators | | | |
-| - | - | - | - |
-| [@bpasero](https://github.com/bpasero) | [@joaomoreno](https://github.com/joaomoreno) | [@egamma](https://github.com/egamma) | [@mattbierner](https://github.com/mattbierner)
-| [@alexandrudima](https://github.com/alexandrudima) | [@Tyriar](https://github.com/Tyriar) | [@rebornix](https://github.com/rebornix) | [@roblourens](https://github.com/roblourens)
-| [@Chrmarti](https://github.com/Chrmarti) | [@mousetraps](https://github.com/mousetraps) | [@dbaeumer](https://github.com/dbaeumer) | [@isidorn](https://github.com/isidorn)
-
-_Table table-integrators: Integrators of Visual Studio Code_
-
-## Appendix C
-
-```go
-	f, err := os.Create("x.txt")
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer f.Close()
-	f.Sync()
-	w := bufio.NewWriter(f)
-	for i := 1; i < 1000000; i++ {
-		line, err := w.WriteString("line" + strconv.Itoa(i) + " \n")
-		if err != nil {
-			fmt.Println(err)
-		}
-		fmt.Printf("writing %d bytes\n", line)
-	}
-	w.Flush()
-```
-_Table table-devteam: Integrators of Visual Studio Code_
-
