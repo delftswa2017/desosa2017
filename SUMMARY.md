@@ -1,5 +1,5 @@
 # Summary
- 
+
 * [Ansible](ansible/chapter.md)
 * [Arduino](arduino/chapter.md)
 * [Beets](beets/chapter.md)
@@ -12,7 +12,7 @@
 * [Kibana](kibana/chapter.md)
 * [Magento](magento/chapter.md)
 * [Mapbox GL JS](mapbox-gl-js/chapter.md)
-* [Matplotlib](matplotlib/chapter.md) 
+* [Matplotlib](matplotlib/chapter.md)
 * [Mockito](mockito/chapter.md)
 * [Neovim](neovim/chapter.md)
 * [Netty](netty/chapter.md)
@@ -27,3 +27,4 @@
 * [Telegram Web](telegram-web/chapter.md)
 * [VSCode](vscode/chapter.md)
 * [Yarn](yarn/chapter.md)
+* [Contributions for DESOSA 2017](contributions-chapter/chapter.md)
