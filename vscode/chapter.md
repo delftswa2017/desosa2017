@@ -260,7 +260,7 @@ The workbench layer hosts the [Monaco Editor](https://github.com/Microsoft/monac
 
 The common environment has one component, namely the editor. The different editor components implement the `baseTextEditorModel` from the `editor` module. Furthermore there are components like `panel`, `options` and `viewlet`. All of these components provide interfaces for common environment of the workbench.
 
-The electron-browser environment implements the actual GUI of the workbench, which is based on the Electron framework. An overview of this component is shown in figure 8. The `main` component fires up the workbench. First the `shell` component is called. The `shell` component contains the different components from which the actual workbench is build. The shell makes use of five components. 
+The electron-browser environment implements the actual GUI of the workbench, which is based on the Electron framework. An overview of this component is shown in Figure 8. The `main` component fires up the workbench. First the `shell` component is called. The `shell` component contains the different components from which the actual workbench is build. The shell makes use of five components. 
 - `crashReporter`: handles the workbench in case of a crash.
 - `nodeCachedDataManager`: saves the settings of the workbench.
 - `command`: handles the different keybindings which can be use in the workbench.
