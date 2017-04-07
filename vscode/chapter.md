@@ -49,20 +49,20 @@ IntelliSense includes a variety of code editing features such as code completion
 
 <img src="./images-vscode/intellisense_intellisense_icons.png" width="400" />
 
-_Figure 2: IntelliSense auto completion in Visual Studio Code._
+_Figure 2: IntelliSense auto completion in Visual Studio Code ([source](https://code.visualstudio.com/docs/editor/intellisense))._
 
 Visual Studio Code also provides an interactive [debugging tool](https://code.visualstudio.com/docs/editor/debugging), which makes users able to step through source code and inspect variables for example. The debug screen can be seen in Figure 3.
 
 <img src="./images-vscode/debugging_debugging_hero.png" width="600" />
 
-_Figure 3: Debug support in Visual Studio Code._
+_Figure 3: Debug support in Visual Studio Code ([source](https://code.visualstudio.com/docs/editor/debugging))._
 
 Visual Studio Code also has integrated [Git](https://git-scm.com/) support, for the most common git commands. 
 In Figure 4 an overview of the git support is shown.
 
 <img src="./images-vscode/versioncontrol_overview.png" width="600" />
 
-_Figure 4: Visual Studio Code git integration._
+_Figure 4: Visual Studio Code git integration ([source](https://code.visualstudio.com/docs/editor/versioncontrol))._
 
 Third party developers can also write extensions for Visual Studio Code to provide extra functionality to the core program. 
 These extensions can be installed by users through the [Extensions Marketplace](https://marketplace.visualstudio.com/). 
@@ -117,7 +117,7 @@ In short, integrators will deal with importance, as well as feasibility of issue
 
   <img src="./images-vscode/pull-request-flow.png" width = "80%">
 
-  _Figure 5: Pull-request workflow_
+  _Figure 5: Pull-request workflow ([source](https://docs.rhodecode.com/RhodeCode-Enterprise/collaboration/pr-flow.html))._
 
 
 
@@ -440,7 +440,7 @@ In the chapter is concluded that the architecture is divided in different layers
 Visual Studio Code development is driven by the community, prioritization of features comes from issue tracking and every week a feature is implemented and optimized by the internal development team.
 The chapter indicates the importance of a structured workflow that can ever be improved so that code quality can be maintained, even with many developers contributing. 
 There is still room for improvement in technical debt, like TODO's which are forgotten and test coverage what is lacking behind. 
-Most of the development environment however is taken good care off what is shown in the chapter.
+Most of the development environment however is taken good care of what is shown in the chapter.
 Visual Studio Code now has over four million users and delivers a new version every month.
 
 ## References
