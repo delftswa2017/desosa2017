@@ -137,7 +137,7 @@ The development view describes the architecture of a project from the viewpoint 
 
 **Figure 2** - *High-level view of Jupyter Notebook.* [[2](#global_view)]
 
-First, the user interacts with the browser, consequently, a request is sent to the Notebook server. This can be either HTTP or WebSocket request. If user code has to be executed, the notebook server sends it to the kernel in [ZeroMQ](http://zeromq.org/) messages. The kernel returns the results of the execution. At last, the notebook server returns an HTML page to the user.
+The high-level view is visualized in Figure 2. First, the user interacts with the browser, consequently, a request is sent to the Notebook server. This can be either HTTP or WebSocket request. If user code has to be executed, the notebook server sends it to the kernel in [ZeroMQ](http://zeromq.org/) messages. The kernel returns the results of the execution. At last, the notebook server returns an HTML page to the user.
 When the user saves the document, it is sent from the browser to the notebook server. The server saves it on disk as a JSON file with a `.ipynb` extension. This notebook file contains the code, output and markdown notes. [[2](#global_view)]
 
 #### Module Structure Model
@@ -214,7 +214,7 @@ This view documents the key runtime functional elements, their responsibilities,
 In the notebook project, different key functional elements are present that interact with internal and external elements during run-time.
 Interfaces like in `Java` are not present in `Python`. 
 But these functional elements do behave like interfaces, as they have well-defined functions that can be called by other elements, to perform different actions. 
-The functional view of our project is visualised on figure X. The key elements and the interaction between them is described next.
+The functional view of our project is visualised on figure 5. The key elements and the interaction between them is described next.
 
 ![Functional view](images-jupyter/functional_view.png)
 **Figure 5**: *UML diagram of the Functional View.*
