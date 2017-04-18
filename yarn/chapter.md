@@ -32,7 +32,7 @@ Figure 1. Diagram showing the growth of the npm registry. Source: modulecounts.c
 </p>
 
 But, the explosive growth of this ecosystem also brings on challenges.
-[Facebook](https://www.facebook.com/) in particular had issues dealing with the growth of npm modules in their [React.js](https://facebook.github.io/react/) project.
+[Facebook](https://www.facebook.com/) in particular had issues dealing with the growth of npm modules in their [React.js](https://facebook.github.io/react/) project [[2](#yarnfb)].
 This was due to the npm client's way of handling sub-dependencies, and the non-determinism of their install algorithm.
 
 To solve these issues, Sebastian McKenzie([@kittens]), a Facebook employee, started work on [Yarn](https://yarnpkg.com/lang/en/) on [Jan 23rd 2016](https://github.com/yarnpkg/yarn/commit/086c2ecceb280b15cbece9337c1b588899a4a08c).
@@ -178,7 +178,7 @@ The parallelization of Yarn's installation process occurs in three different pha
 * Fetching dependencies
 * Linking(/Copying) dependencies
 
-These three different phases correspond to the package structure, as described in [the functional view](#functional-view-1).
+These three different phases correspond to the package structure, as described in [the architecture](#architecture).
 For each dependency, the first step is to resolve the package in the registry.
 This step will include discovery of its sub-dependencies.
 First, all resolutions are done in parallel.
@@ -201,6 +201,8 @@ This architectural approach ensures that re-installation of common packages does
 Every step for each dependency is fully asynchronous in the Yarn architecture, which allows full parallelization of every installation step.
 
 ## Architecture
+<div id="architecture"></div>
+
 The architecture of a system is dependent on the processes and workflows of the development team, as well as the project itself.
 To illustrate this, this section first explains the high-level package structure, then identifies key design patterns.
 Next, an analysis of the testing practices of the development team is discussed.
@@ -405,23 +407,7 @@ The risk involved with this is the [Shotgun Surgery](https://sourcemaking.com/re
 
 ### Code Maintainability
 [Plato](https://github.com/es-analysis/plato), a JavaScript tool with the purpose of visualizing source complexity of JavaScript files and projects, was also used to analyze the project.
-Running Plato creates a detailed report focusing on Maintainability, Source Lines of Code (SLOC), Proneness to Errors and Complexity of the code.
-
-<div id="figure-6"></div>
-
-![maintainability of Yarn src files](images-yarn/yarn-files-maintainability.png)
-  <p align="center" style="font-style: italic;">
-  Figure 6. Maintainability score of each individual source file in Yarn.
-  </p>
-
-Overall, Yarn receives a maintainability index of 68.94 and has an average of 136 SLOC per file.
-The maintainability index is based on a combination of factors, namely cyclomatic complexity, halstead volume and lines of code  [[10](#maintainindex)].
-The index ranges between 0 and 100 [[10](#maintainindex)], indicating the relative ease of maintaining the code, with a high value indicating better maintainability.
-Observing the indices of all the individual source files, (see [Figure 6](#figure-6)), it can be seen that all the files are close to the overall index of the project.
-With the exception of `src/reporters/lang/en.js`, no significant outliers are present in the project.
-Manual inspection shows that `src/reporters/lang/en.js` is only used to declare message constants, explaining the very low maintainability index.
-As no real maintenance can be performed on this file, this low index can safely be ignored.
-
+Running Plato creates a detailed report focusing on Maintainability, Source Lines of Code (SLOC), Proneness to Errors and Complexity of the code. Since the computation of the Maintainability index mainly relies on lines of code, only the true lines of code are touched upon [[10](#maintainability)]. 
 <div id="figure-7"></div>
 
 ![sloc of Yarn src files](images-yarn/yarn-sloc.png)
@@ -429,13 +415,13 @@ As no real maintenance can be performed on this file, this low index can safely 
   Figure 7. Source lines of code of each individual source file in Yarn.
   </p>
 
-As mentioned before, the average source file of Yarn contains 136 SLOC.
+The average source file of Yarn contains 136 SLOC.
 A more informative metric would be to see the relation of this metric between files.
 Therefore, the SLOC for every individual source file in the Yarn project is shown in [Figure 7](#figure-7).
-Contrary to the maintainability index discussed before, a large amount of variation in SLOC can be observed between the source files of the project.
+A large amount of variation in SLOC can be observed between the source files of the project.
 Two files stand out significantly from the rest in terms of SLOC, namely `src/cli/commands/install.js` and `src/util/fs.js` with 800 and 769 lines respectively.
 Both of these files are susceptible of large functions and classes, and containing too many responsibilities.
-Consequently, these files have a below average maintainability index, 61.54 and 61.61 respectively, and are at risk of becoming a [God Class](https://sourcemaking.com/antipatterns/the-blob).
+Consequently, these files are at risk of becoming a [God Class](https://sourcemaking.com/antipatterns/the-blob).
 
 ### Current Code Coverage
 Testing is an integral part of the workflow of the Yarn core team.
@@ -500,16 +486,16 @@ Here, we found that Yarn is ready for growth, with an open structure to add more
 We identified technical debt in the codebase, and how Yarn deals with this debt.
 For some of the issues identified, we have been able to propose fixes by opening several pull requests.
 
-With the adoption of Yarn in the ecosystem, the transparent RFC process, and the solid core team, we are confident Yarn can overcome its challenges and will continue to be a key player in the JavaScript ecosystem.
+With the adoption of Yarn in the ecosystem, the transparent RFC process, and the solid core team, we are confident Yarn can overcome its challenges and will continue to be a key layer in the JavaScript ecosystem.
 
 ## References
 <!-- Stakeholders -->
 1. <div id="rw"/>Nick Rozanski and Eoin Woods. Software Systems Architecture: Working with Stakeholders using Viewpoints and Perspectives. Addison-Wesley, 2012.
-2. <div id="yarnfb"/>Sebastian McKenzie, Christoph Pojer, James Kyle. Yarn: A new package manager for JavaScript. https://code.facebook.com. 2016.
+2. <div id="yarnfb"/>Sebastian McKenzie, Christoph Pojer, James Kyle. Yarn: A new package manager for JavaScript. https://code.facebook.com/posts/1840075619545360. 2016.
 3. <div id="coc"/>Contributor Covenant Code of Conduct. https://github.com/yarnpkg/yarn/blob/12ff2bca446f2173de8c0861cb61b075fbf726f9/CODE_OF_CONDUCT.md. 25 Aug 2016.
-4. <div id="wycats"/>Yehuda Katz. Why I'm Working on Yarn. http://yehudakatz.com/2016/10/11/im-excited-to-work-on-yarn-the-new-js-package-manager-2/, 11 Oct 2016.
+4. <div id="wycats"/>Yehuda Katz. Why I'm Working on Yarn. http://yehudakatz.com/2016/10/11/im-excited-to-work-on-yarn-the-new-js-package-manager-2/, Oct 11, 2016.
 5. <div id="boweryarn"/>Ben Mann. Using Bower with Yarn. https://bower.io/blog/2016/using-bower-with-yarn/. 12 Oct 2016.
-6. <div id="polymerVid"/>Google Chrome Developers. What's New in Polymer Tools (Polymer Summit 2016). https://youtu.be/guYHn0P8bKQ?t=17m10s. 18 Oct 2016.
+6. <div id="polymerVid"/>Google Chrome Developers. What's New in Polymer Tools (Polymer Summit 2016). https://youtu.be/guYHn0P8bKQ?t=17m10s. Oct 18, 2016.
 <!-- /Stakeholders -->
 <!-- Context View -->
 7. <div id="yarn-github"/>Yarn README.md. https://github.com/yarnpkg/yarn/blob/19eb5007510f039c61630948b01a491c3ccdde23/README.md. February 27, 2017.
@@ -518,8 +504,8 @@ With the adoption of Yarn in the ecosystem, the transparent RFC process, and the
 8. <div id="json-reporter"/>https://github.com/yarnpkg/yarn/blob/89f181491e1258032c2b0365855ee2f1c37a913d/src/reporters/json-reporter.js. March 6, 2017.
 <!-- /Architecture -->
 <!-- Tech debt -->
-9. <div id="techdebtseaman"/>Measuring and Monitoring Technical Debt, Carolyn Seaman, University of Maryland Baltimore County https://pdfs.semanticscholar.org/81c0/8b976f959b092f3768c74c4c307cba55a853.pdf. March 27, 2013.
-10. <div id="maintainindex"/>Maintainability Index Range and Meaning. https://blogs.msdn.microsoft.com/codeanalysis/2007/11/20/maintainability-index-range-and-meaning/. November 20, 2007.
+9. <div id="techdebtseaman"/>Carolyn Seaman. Measuring and Monitoring Technical Debt, University of Maryland Baltimore County. https://pdfs.semanticscholar.org/81c0/8b976f959b092f3768c74c4c307cba55a853.pdf. March 27, 2013.
+10. <div id="maintainability"/>Arie van Deursen. Think Twice Before Using the “Maintainability Index”. https://avandeursen.com/2014/08/29/think-twice-before-using-the-maintainability-index/ August 29, 2014. 
 <!-- /Tech debt -->
 
 
