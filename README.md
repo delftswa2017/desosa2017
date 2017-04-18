@@ -25,7 +25,7 @@ The systems are from a wide range of domains, including testing frameworks ([Moc
 [beets]: http://beets.io/
 [kibana]: https://www.elastic.co/products/kibana
 
-During a 8-week period, the students spent one third of their time on this course, and engaged with these systems in order to understand and describe their software architecture.
+During an 8-week period, the students spent one third of their time on this course, and engaged with these systems in order to understand and describe their software architecture.
 
 Inspired by Brown and Wilsons' [Architecture of Open Source Applications][aosa], we decided to organize each description as a chapter, resulting in the present online book.
 
