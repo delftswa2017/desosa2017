@@ -256,9 +256,9 @@ A diagram of the deployment view is given in Figure [6](#figure6).
 
 First of all, JabRef is a Java program, and thus requires Java to be installed in order to be able to run.
 More specifically, because of its JavaFX dependencies, running JabRef requires Java 8 (version 60 or newer).
-The Windows installer will actually install Java for you if no compatible Java installation is found, according to [[7](#ref7)].
+The Windows installer will actually install Java for you if no compatible Java installation is found [[7](#ref7)].
 Because JabRef uses Java 8, it can only be run on technology that can support Java 8.
-Java 8 can be run on a variety of operating systems, a list of which can be found at [[8](#ref8)]. Also, in order to find papers on the Internet through JabRef, JabRef needs a working internet connection.
+Moreover, Java 8 can be run on a variety of operating systems [[8](#ref8)]. Also, in order to find papers on the Internet through JabRef, JabRef needs a working internet connection.
 
 JabRef requires Gradle to be built and Install4j to be installed.
 Gradle also handles collecting all the external Java dependencies when building JabRef from source. Getting the dependencies by looking for them on Google is not only tedious, but some up-to-date versions of the dependencies cannot be found while looking on the internet.
@@ -301,7 +301,7 @@ In this chapter, we analyzed the project from different views and perspectives.
 Each of these gave more insight into the architecture of JabRef.
 
 First off, in the stakeholder analysis, we discovered that JabRef is actively maintained and developed by a small team of developers (the JabRef team) and external contributors.
-Aside from that, the other stakeholders were clearly defined according to the stakeholder classes in [[1](#ref1)].
+Aside from that, the other stakeholders were clearly defined according to the stakeholder classes in Rozanski and Woods [[1](#ref1)].
 
 After that, in the context view, the system scope of JabRef is given.
 We explained what tools JabRef uses to help maintaining and developing code, as well as give an overview of all the interactions between JabRef and its environment.
