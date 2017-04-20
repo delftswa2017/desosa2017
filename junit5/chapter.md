@@ -6,7 +6,7 @@
 By [Liam Clark](https://github.com/LiamClark), [Thomas Overklift](https://github.com/Tarovk) and [Jean de Leeuw](https://github.com/JAdeLeeuw). 
 
 ## Abstract
-JUnit 5 is the successor of JUnit 4, which is the largest java testing framework and third most imported java
+JUnit 5 is the successor of JUnit 4, which is the largest Java testing framework and third most imported Java
 package currently in existence.
 The vision of JUnit 5 is to provide a versatile testing framework which is not tightly coupled towards several
 stakeholders like JUnit 4 is.
@@ -30,7 +30,7 @@ We conclude the chapter by discussing the success of the vision of JUnit 5.
 <a name="introduction" ></a>
 ## Introduction
 Unit testing Java code is traditionally done with JUnit. The fourth iteration of JUnit,
-JUnit 4, is at the time of writing the largest and most commonly used java testing framework.
+JUnit 4, is at the time of writing the largest and most commonly used Java testing framework.
 Unfortunately, JUnit 4 suffers from architectural problems, hampering the development of JUnit 4.
 
 The JUnit team wants to create a solid foundation for the future iterations of JUnit,
@@ -44,7 +44,7 @@ of the foundation just like JUnit 5. This structure with multiple versions eases
 JUnit to another. 
 The foundation combined with different (new) iterations of JUnit forms the vision of the JUnit team: 
 a framework that is versatile, able to evolve over time, and loosely coupled towards external stakeholders.
-This is what the architects of JUnit ultimately strife to accomplish.
+This is what the architects of JUnit ultimately strive to accomplish.
 
 At the time of writing, JUnit 5 is still in development,
 with the first official release planned on the 24th of August <a href="#32">[32]</a>.
@@ -69,14 +69,14 @@ the JUnit 5 system <a href="#1">[1]</a>.  In the sections below we will identify
 <!-- Illity2Stakeholder -->
 ### Acquirers
 Acquirers can be seen as business sponsors and are in of JUnit 5's case mainly external investors.
-The development of JUnit 5 has started with the launch of a crowd funding campaign on Indigogo <a href="#2">[2]</a>.
-Therefore all of the companies or individuals that funded the campaign can (to a certain extend) be marked as acquirers. 
-We would like to name American Express as a separate acquirer because they are the main sponsor of the Indigogo campaign.
+The development of JUnit 5 has started with the launch of a crowd funding campaign on Indiegogo <a href="#2">[2]</a>.
+Therefore all of the companies or individuals that funded the campaign can (to a certain extent) be marked as acquirers.
+We would like to name American Express as a separate acquirer because they are the main sponsor of the Indiegogo campaign.
 
 ### Assessors
 Assessors are stakeholders that oversee whether legal constraints are complied with.
-We did identify Indigogo as an assessor because of the crowdfunding campaign. In the campaign JUnit states a certain
-vision and several features they want to include in the new version of JUnit. By using Indigogo in this manner they
+We did identify Indiegogo as an assessor because of the crowdfunding campaign. In the campaign JUnit states a certain
+vision and several features they want to include in the new version of JUnit. By using Indiegogo in this manner they
 are required to actually implement what they promised. <br/>
 Another legal constraint that one could think of are the licences that the dependencies of JUnit have. The four
 dependencies of JUnit (in production), Java <a href="#3">[3]</a>,
@@ -94,7 +94,7 @@ into the code base. A contribution can be the implementation of a new feature, b
 an update to the documentation or a refactor. Therefore it differs per contribution what role a contributor
 has. <br />
 JUnit has many minor and major contributors but we'd like to identify the five people who have taken on the
-lions share of the development of JUnit 5:
+lion's share of the development of JUnit 5:
   * @[sbrannen](https://github.com/sbrannen)
   * @[marcphillipp](https://github.com/marcphilipp)
   * @[jlink](https://github.com/jlink)
@@ -142,8 +142,8 @@ Additionally we know that these two contributors spread their knowledge by givin
 and institutions. Marc Phillip gave a guest lecture at the TU Delft, and Sam Brannen
 has held talks about JUnit <a href="#10">[10]</a> during conferences in the past.
 
-Another type of communicator that is not necessarily directly connected to JUnit are teachers. Teachers can introduce
-students to the JUnit testing framework and familiarize them with testing principles. An example in this category
+Another type of communicator that is not necessarily directly connected to JUnit is teachers. Teachers can introduce
+students to the JUnit testing framework and familiarise them with testing principles. An example in this category
 would be Arie van Deursen.
 
 ### Users
@@ -189,16 +189,16 @@ JUnit 4 and JUnit 5.
 
 ### OTA4J
 An interesting new development is the creation of the 'Open Test Alliance for the JVM'.
-This alliance aims to create a standardized way of test assertion failures and errors. This allows IDEs to improve the
+This alliance aims to create a standardised way of test assertion failures and errors. This allows IDEs to improve the
 way different testing frameworks are integrated. The alliance was initiated by the architects of JUnit. And there are
 already quite some parties on board, apart from JUnit, and the IDEs there are several (competing) testing frameworks
-that want to work together to achieve this goal. In Fig. 2 we have visualized the different parties that
+that want to work together to achieve this goal. In Fig. 2 we have visualised the different parties that
 are involved. <br/>
 <img alt="OTA4J" src="https://cloud.githubusercontent.com/assets/12841723/23342746/31e11e70-fc60-11e6-94fe-89a04d54955f.png" width="300px" />
 <br/>
 *Fig. 2: All parties that are part of the OTA4J.*
 
-### Context View Visualization
+### Context View Visualisation
 Taking the issues mentioned above and our initial stakeholder analysis into account, we created a context view of the
 system, as is visible in Fig. 3.
 
@@ -209,11 +209,11 @@ system, as is visible in Fig. 3.
 You can see the main contributors of JUnit 5 (and to a certain extent JUnit 4) as the most important stakeholders, 
 because they decide which features are included and are not. 
 Furthermore we have decided to include American Express as an acquirer because they were the main contributor to the
-Indigogo campaign that initiated the development of JUnit 5 as mentioned before.
+Indiegogo campaign that initiated the development of JUnit 5 as mentioned before.
 
 Noteworthy is the relation between JUnit 4 and JUnit 5 as respectively predecessor and successor, we talk about this
 in more detail in the evolution perspective. We have tried to
-visualize the relation between the two versions of the framework and the IDEs in light of the API that JUnit provides
+visualise the relation between the two versions of the framework and the IDEs in light of the API that JUnit provides
 for them. You can also see there are a great many 'Ecosystem enhancers'. These are frameworks or plug-ins that use
 JUnit and provide additional functionality, support or integration options. The relationships between ecosystem enhancers 
 themselves shift greatly with the introduction of JUnit 5, allowing them to work together in a better way.
@@ -235,7 +235,7 @@ with new features and extension possibilities. JUnit 5's approach must
 be able to support the older versions of JUnit as well. We will now introduce architectural principles that we think 
 may have driven the design.
 
-1. **Backwards compatibility** and migration is required for JUnit 5's adoption.
+1. **Backwards compatibility** and migration are required for JUnit 5's adoption.
 2. Any entity integrating with JUnit 5 should do so in a **loosely coupled** manner.
 3. Key stakeholders should be provided with a **dedicated interface** for their tasks.
 4. **Minimal dependencies** to further drive loose coupling.
@@ -260,11 +260,11 @@ therefore only contains a declarative API without implementation.
 
 Secondly, the JUnit 4 interface violates the minimal dependency principle. JUnit 4 is a rather fat dependency, but it is 
 still provided as an external interface due to the backwards compatibility principle. This indicates that the JUnit 
-architects consider backward compatibility to be more important than minimal dependencies.
+architects consider backwards compatibility to be more important than minimal dependencies.
 
 Lastly, the dedicated interface principle applies when we consider the build-tools. In JUnit 4 build-tool integration 
 was not taken into consideration. Because the dedicated interface principle was judiciously applied this 
-relationship has now rigorously changed. We highlight here that it is a architectural principle of importance and discuss 
+relationship has now rigorously changed. We highlight here that it is an architectural principle of importance and discuss
 the effects in the evolution perspective. <br/>
 The build-tools also adhere to the minimal dependency principle; they consist of a different and minimal dependency for 
 every build-tool JUnit wishes to integrate with.
@@ -285,7 +285,7 @@ section into several subsections: module structures, development guidelines, and
 ### Module Structures
 Due to the size of JUnit 5,
 the code has been split into four *sub-projects* <a href="#16">[16]</a>
-and each of these consist of multiple *modules*.
+and each of these consists of multiple *modules*.
 Modules are parts of the code base that are related to each other and are therefore grouped together.
 A sub-project is a group of these modules that are related and are therefore grouped together.
 
@@ -293,7 +293,7 @@ These sub-projects and modules were made to create a (for humans) logical struct
 granting three benefits:
 
 1. It allows for a better understanding of the code base.
-2. It gives better insight on the possible effects changes in one area of the code may have on other areas of the code.
+2. It gives better insight into the possible effects changes in one area of the code may have on other areas of the code.
 3. It makes the code base easier to maintain.
 
 This section consists out of two subsections, where we identify and classify the sub-projects and identify and discuss 
@@ -320,7 +320,7 @@ It aims to be a more flexible and refined way for test-runners to integrate with
 #### junit-jupiter
 JUnit jupiter is the new end-user facing functionality.
 This functionality consists of new features for testers and
-a more composition friendly extension model for the eco-system-enhancers.
+a more composition-friendly extension model for the eco-system-enhancers.
 
 #### junit-vintage
 JUnit vintage is a reincarnation of JUnit 4,
@@ -357,7 +357,7 @@ In this section we'll zoom in on the policy revolving around the development of 
 contribute new code to the JUnit 5 project they have to adhere to certain rules. 
 
 #### Source code structure
-When looking at the source code structure of the JUnit 5 project you can clearly recognize the same structure that has
+When looking at the source code structure of the JUnit 5 project you can clearly recognise the same structure that has
 been discussed in the section on module structures.
 Every module has its own corresponding Gradle <a href="#20">[20]</a> module in the project.
 
@@ -376,10 +376,10 @@ otherwise you will introduce style discrepancies in the project. All the exact s
 `contributions.md` file on the JUnit 5 repository <a href="#21">[21]</a>.
 JUnit 5 offers a file with 'formatter settings' that can be used in several IDEs. If the formatter settings are
 imported from the file and used for contribution they will automatically be formatted appropriately. Apart from this
-formatter, you can locally use `./gradlew check` as well. This check runs the so called 'spotless' plug-in as well as
+formatter, you can locally use `./gradlew check` as well. This check runs the so-called 'spotless' plug-in as well as
 checkstyle. The spotless plug-in can also automatically add the correct licences to files with the
 `./gradlew spotlessApply` command, this is a separate action though and does not happen during `./gradlew check`.
-This takes away a some tedious work from the developer as licences can differ per file.
+This takes away some tedious work from the developer as licences can differ per file.
 
 #### The release process
 JUnit 5 has no fully automated releases but does feature an automated release process. When looking at the
@@ -393,7 +393,7 @@ of JUnit 5 has been released and more work is being done on additional milestone
 Maven Central <a href="#25">[25]</a> there are already three milestone releases to be found. The next milestone release
 (Milestone 4) is planned to be completed by March 18th 2017 <a href="#26">[26]</a>.
 After this milestone there will at least be one more milestone to be completed. After that the project will be almost
-ready for a production release and the architects will prepare for this by releasing one or more so called
+ready for a production release and the architects will prepare for this by releasing one or more so-called
 'release candidates' before making a 'GA' release. In Fig. 7 the development and release stages are
 illustrated.
 
@@ -432,7 +432,7 @@ In order to create useful features, the JUnit 5 team, like every other developme
 needs end-user feedback.
 Testing JUnit 5 *with* JUnit 5 allowed the developers to turn themselves into end-users and receive
 this feedback early on.
-Using their own features gives the developers first hand experience
+Using their own features gives the developers first-hand experience
 and allows them to immediately determine whether their creations are useful and easy to work with,
 essentially creating a feedback loop. Of course the early milestone releases also play a key role by providing extra feedback.
 Another benefit of this testing approach is that every test case written by the team,
@@ -508,7 +508,7 @@ years and have tried to address them as best as possible in the new version of J
 ### Problems in JUnit 4
 Normally in projects the size of JUnit, technical debt is a key factor inclines developers to rewrite their software
 product, but in the case of JUnit there is fairly little internal technical debt. 
-The technical debt in the production code, considering the size of the project, is very limited in both JUnit 4 and Junit 5.
+The technical debt in the production code, considering the size of the project, is very limited in both JUnit 4 and JUnit 5.
 We were unable to discover any major issues on technical debt in the production code.
 Both versions of the framework are also very well tested, JUnit 4 has 89% line coverage, and JUnit 5 has an even higher
 coverage of 95.5% making the project extremely well tested <a href="#29">[29]</a>.
@@ -525,11 +525,11 @@ get past what little boundaries are present, resulting in an ad hoc, undocumente
 API intact severely limits any kind of development on JUnit. This situation came to pass because JUnit 4 neglected IDEs
 as an important stakeholder for their framework and did not provide proper integration options for the IDEs. Because
 of the significant market share JUnit 4 has, this resulted in the IDEs getting the information they desired on their
-own. To emphasize this problem we can look at Junit 4 issue 444 <a href="#31">[31]</a>.
-This issue calls for an exhaustive listener framework in JUnit that could be utilized by IDEs. This issue has been
+own. To emphasise this problem we can look at JUnit 4 issue 444 <a href="#31">[31]</a>.
+This issue calls for an exhaustive listener framework in JUnit that could be utilised by IDEs. This issue has been
 created in 2012 (while JUnit 4 has been around since 2005) and is still opened. Therefore we can conclude that this
 issue has not been solved for JUnit 4 as of now (and may never be). <br />
-In Junit 5 this problem has been resolved by loose coupling and dedicated interfaces as is described in the functional 
+In JUnit 5 this problem has been resolved by loose coupling and dedicated interfaces as is described in the functional
 view.
 
 #### Extension model
@@ -538,13 +538,13 @@ and has been a key to the success for integrating other tools. As can be seen in
 vast amount of libraries and, as we call them, 'ecosystem enhancers', providing their functionality by extending JUnit.
 These tools are successful in enriching JUnit by providing additional functionality, indicating their individual needs
 as stakeholders have been met. Many of these tools use the test runner to achieve their goals. However JUnit 4 comes
-with a limitation: each test suite can only utilize a single test runner. This makes different tools that solve
+with a limitation: each test suite can only utilise a single test runner. This makes different tools that solve
 different problems compete for the runner for no reason. This results in tools with completely different goals being
-unable to function in combination with each other. Junit 5 introduces a new extension model that allows tools to work
+unable to function in combination with each other. JUnit 5 introduces a new extension model that allows tools to work
 together and even provide new functionality. Details on how the extension model of JUnit 5 solves the problem
 can be found in the user guide <a href="#34">[34]</a>.
 
-### The road from JUnit 4 to Junit 5
+### The road from JUnit 4 to JUnit 5
 To address the architectural issues in JUnit 4, the JUnit team readjusted their stakeholder priorities.
 This can be seen in the JUnit Lambda kickoff  <a href="#12">[12]</a> which had IDE
 and build tool owners present to discuss the first start of the work on JUnit 5. Further evidence can be found in the 
@@ -556,7 +556,7 @@ extension points in JUnit 4 and 5 are discussed <a href="#14">[14]</a>
 
 To further elaborate on the relationship between JUnit 4 and JUnit 5 and the effect this migration will have on the
 ecosystem we want to highlight a few important decisions made by the architects.
-To limit the impact of the transition from JUnit 4 and JUnit 5 for end user and ecosystem ehancers, the architects of
+To limit the impact of the transition from JUnit 4 and JUnit 5 for end user and ecosystem enhancers, the architects of
 JUnit have created a dedicated migration support platform. Users are able to use a combination of JUnit 4 and JUnit 5
 tests during a transition period using this system. This way they won't have to adjust all of their tests overnight.
 JUnit 4 lives on in the JUnit platform as JUnit Vintage.
@@ -631,7 +631,7 @@ Software Systems Architecture: Working with Stakeholders Using Viewpoints and Pe
 11. Statistics about package use in Java projects on Github, *Google*, 
 [https://cloud.google.com/bigquery/public-data/github](https://cloud.google.com/bigquery/public-data/github), access date: 30-03-2017 <br/>
 <a name="12" ></a> 
-12. JUnit lambda campaign on Indigogo, 
+12. JUnit lambda campaign on Indiegogo,
 [https://www.indiegogo.com/projects/junit-lambda#/](https://www.indiegogo.com/projects/junit-lambda#/), access date: 30-03-2017 <br/>
 <a name="13" ></a> 
 13. Issue on Mockitos Github with communication with JUnit 5 stakeholders, 
