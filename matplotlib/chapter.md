@@ -46,7 +46,7 @@ _Matplotlib is a data plotting library that is often considered as the grandfath
 <a name="introduction"></a>
 
 
-Matplotlib provides a convenient tool for creating 2D plots of data using Python. It is an open-source project that is fully supported by the Python scientific computing community. Matplotlib is now used by a variety of people for analysis and research purposes and was even used by NASA for data visualization of the [Phoenix](#http://matplotlib.org/users/screenshots.html#ellipses) spacecraft exploration on Mars.
+Matplotlib provides a convenient tool for creating 2D plots of data using Python. It is an open-source project that is fully supported by the Python scientific computing community. Matplotlib is now used by a variety of people for [analysis and research purposes](http://depsy.org/package/python/matplotlib) and was even used by NASA for data visualization of the [Phoenix](http://matplotlib.org/users/screenshots.html#ellipses) spacecraft exploration on Mars.
 
 Matplotlib was initially developed by a group of self-taught programmers with a scientific background. The founder of Matplotlib, John Hunter, started developing it to visualize biomedical data during his post-doctoral research in Neurobiology [[1]](#aosa) to visualize electrocorticography (ECG) data. At that time, the available proprietary data visualization tool was a limited resource, and John Hunter wanted to find an alternative tool that was available for all his team. MATLAB was the most popular alternative at that time, but he found that as a software program, it has limited capabilities in managing large biomedical data from various sources. Therefore, he opted to create a new tool that is similar to MATLAB using Python, which as a programming language has an advantage in handling data.
 
@@ -71,7 +71,7 @@ To start off our analysis, we will look at the stakeholders involved with Matplo
 _**Figure 1.** The Stakeholders of Matplotlib_
 
 
-There are no corporate sponsors for Matplotlib, but the main funding is provided through donations via the [NumFOCUS](http://www.numfocus.org/) organization, which can be classified as an **Acquirer**. The Python Software Foundation ([PSF](https://docs.python.org/3/license.html)) can be categorized as an **Assessor** of Matplotlib because they oversee the system's conformance to standards and legal regulation. Meanwhile, the development of Matplotlib is coordinated via Github, which can be classified as a **Supplier**.
+There are no corporate sponsors for Matplotlib, but the main funding is provided through donations via the [NumFOCUS](http://www.numfocus.org/) organization, which can be classified as an **Acquirer**. The Python Software Foundation ([PSF](https://docs.python.org/3/license.html)) can be categorized as an **Assessor** of Matplotlib because they oversee the system's conformance to standards and legal regulation. Meanwhile, the development of Matplotlib is coordinated via GitHub, which can be classified as a **Supplier**.
 
 The **Developers** of Matplotlib are divided into core developers and community developers. [John D. Hunter](https://github.com/jdh2358) is the founder and initial lead developer of Matplotlib, but he passed away in 2012. Now both [Michael Droettboom](https://github.com/mdboom) and [Thomas A. Caswell](https://github.com/tacaswell) act as lead developers. They are accompanied with 15 other core developers in developing Matplotlib. Many of the core developers also act as **Maintainers**, since they review all contributions to make sure it doesn't break the system. Matplotlib's **Support Staff** consists of a few core developers such as [Thomas A. Caswell](https://github.com/tacaswell), [Paul Hobson](https://github.com/phobson), and [Eric Firing](https://github.com/efiring), and also some community developers, such as [Nelle Varoquaux](https://github.com/NelleV).
 
@@ -89,11 +89,11 @@ _**Figure 2.** Power-Interest Grid_
 
 The power versus interest relation of the stakeholders are shown in [Figure 2](#fig-power) and are classified into 4 categories :
 
-- **Low power and low interest** : Github and the Python Software Foundation are stakeholders who do not have any control over Matplotlib, and do not have a significant role in the development of Matplotlib.    
+- **Low power and low interest** : GitHub is a stakeholder who does not has any control over Matplotlib, and does not has a significant role in the development of Matplotlib.    
 
 - **Low power and high interest** : Users, competitors, and community developers of Matplotlib are stakeholders who follow the latest development of Matplotlib and are active in the discussion of Matplotlib, but they do not have significant power to directly change the Matplotlib system.
 
-- **High power and low interest** : NumFOCUS is a stakeholder who directly affects development of Matplotlib, but it only provides funding without restricting the development.
+- **High power and low interest** : NumFOCUS and the Python Software Foundation (PSF) are stakeholders who directly affect the development of Matplotlib. NumFOCUS though only provides funding without restricting the development of Matplotlib, while the PSF develops Python which in turn directly affects Matplotlib itself. For both stakeholders, Matplotlib is only one of the few projects they affect and are not their main interest.
 
 - **High power and high interest** : [Michael Droettboom](https://github.com/mdboom) and [Thomas A. Caswell](https://github.com/tacaswell) are the lead developers of Matplotlib. Along with other core developers, they have significant interest and power in developing Matplotlib.
 
@@ -106,7 +106,7 @@ The power versus interest relation of the stakeholders are shown in [Figure 2](#
 <a name="context-view"></a>
 
 
-Next we will look into the relationships that exist between Matplotlib and its environment. This section also defines what the system does and doesn't do, and the boundaries between it and the outside world [[2]](#rw).
+Next we will look into the boundary that separates between Matplotlib and its environment, a.k.a the system's runtime context. This describes what the system does and doesn't do, and how the system interacts with external entities [[2]](#rw).
 
 
 ### 3.1. System Scope
@@ -162,9 +162,9 @@ Matplotlib is developed as a Python package and is hosted on the Python package 
 
 #### C. Development & Community
 
-A platform that plays an important role during development is `Github`, which is used for code versioning, issue tracking and project management. All code gets tested and integrated via continuous integration tools. Testing of the code uses the `pytest` and `Tox` package, and code coverage is tested using `Codecov`.
+A platform that plays an important role during development is `GitHub`, which is used for code versioning, issue tracking and project management. All code gets tested and integrated via continuous integration tools. Testing of the code uses the `pytest` and `Tox` package, and code coverage is tested using `Codecov`.
 
-The main communication channel used in the development of Matplotlib is through their [Github repository](https://github.com/matplotlib/matplotlib) and their [mailing list](https://sourceforge.net/p/matplotlib/mailman/). More open discussion is done via `Google Hangouts` and the [Matplotlib `Gitter` channel](https://gitter.im/matplotlib/matplotlib). The Matplotlib developers also provide support to users through [`Stackoverflow`](http://stackoverflow.com/questions/tagged/matplotlib).
+The main communication channel used in the development of Matplotlib is through their [GitHub repository](https://github.com/matplotlib/matplotlib) and their [mailing list](https://sourceforge.net/p/matplotlib/mailman/). More open discussion is done via `Google Hangouts` and the [Matplotlib `Gitter` channel](https://gitter.im/matplotlib/matplotlib). The Matplotlib developers also provide support to users through [`Stackoverflow`](http://stackoverflow.com/questions/tagged/matplotlib).
 
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -272,15 +272,15 @@ Matplotlib requires intensive numeric calculations to efficiently plot 2D data. 
 
 #### Design Standardization
 
-Matplotlib is a community effort which is developed through [Github](https://github.com/matplotlib/matplotlib). Development standards are communicated through their [developers's guide](http://matplotlib.org/devel/index.html).
+Matplotlib is a community effort which is developed through [GitHub](https://github.com/matplotlib/matplotlib). Development standards are communicated through their [developers's guide](http://matplotlib.org/devel/index.html).
 
-Matplotlib uses [PEP8](https://www.python.org/dev/peps/pep-0008/) as a standard style for Python code. It is a set of coding standards created by the Python software foundation. To support Python 2 and 3 from a single code base, Matplotlib uses the [six](http://pythonhosted.org/six/) Python library. Meanwhile, design quality is maintained through Pull Request reviews and discussions in Github, and larger design goals are compiled into the [Matplotlib Enhancement Proposal (MEP)](http://matplotlib.org/devel/MEP/index.html).
+Matplotlib uses [PEP8](https://www.python.org/dev/peps/pep-0008/) as a standard style for Python code. It is a set of coding standards created by the Python software foundation. To support Python 2 and 3 from a single code base, Matplotlib uses the [six](http://pythonhosted.org/six/) Python library. Meanwhile, design quality is maintained through Pull Request reviews and discussions in GitHub, and larger design goals are compiled into the [Matplotlib Enhancement Proposal (MEP)](http://matplotlib.org/devel/MEP/index.html).
 
 #### Testing Standardization
 
 Matplotlib uses standard Python testing libraries for their testing process. The tests mainly consists of unit tests which tests small components of the code, and also a Matplotlib specific "image comparison test". This test generates specific images using the Matplotlib code and then compares the results with baseline images generated previously.
 
-To be able to do the testing internally, developers are required to install [`pytest`](http://doc.pytest.org/en/latest/) and [`mock`](https://docs.python.org/dev/library/unittest.mock.html). [Ghostscript](https://www.ghostscript.com/) and [Inkscape](https://inkscape.org/en/) are also required for the image comparison test. To guarantee changes to the code do not introduce unexpected failures or conflicts, Matplotlib implements continuous integration using [Travis CI](https://travis-ci.org/) for unix environments and [Appveyor](https://www.appveyor.com/) for windows. Both CI platforms are integrated to Github and run on every new Pull Request. Matplotlib also uses [CodeCov](https://codecov.io/) to check the code coverage when there is a change in the test code. To accommodate testing on different versions of Python, Matplotlib uses [`tox`](https://tox.readthedocs.io/en/latest/).
+To be able to do the testing internally, developers are required to install [`pytest`](http://doc.pytest.org/en/latest/) and [`mock`](https://docs.python.org/dev/library/unittest.mock.html). [Ghostscript](https://www.ghostscript.com/) and [Inkscape](https://inkscape.org/en/) are also required for the image comparison test. To guarantee changes to the code do not introduce unexpected failures or conflicts, Matplotlib implements continuous integration using [Travis CI](https://travis-ci.org/) for unix environments and [Appveyor](https://www.appveyor.com/) for windows. Both CI platforms are integrated to GitHub and run on every new Pull Request. Matplotlib also uses [CodeCov](https://codecov.io/) to check the code coverage when there is a change in the test code. To accommodate testing on different versions of Python, Matplotlib uses [`tox`](https://tox.readthedocs.io/en/latest/).
 
 
 
