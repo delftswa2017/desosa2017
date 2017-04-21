@@ -42,8 +42,9 @@ high maintainability, readability and extensibility.*
 8. [Technical Debts](#Technical_debts)   
     8.1 [Automated inspecting code debts with tool](#Automated)      
     8.2 [Testing Debts](#Testing_debts)     
-    8.3 [Evolution of Technical debt](#Evolution)     
-9. [References](#Reference)  
+    8.3 [Evolution of Technical debt](#Evolution)   
+9. [Conclusion](#Conclusion)  
+10. [References](#Reference)  
 
 <a name="Introduction"></a>
 ## Introduction
@@ -110,7 +111,7 @@ Figure 1. Power interest matrix
 <a name="Integrators"></a>
 ### Integrators  
 In this section, the integrators who deal with the contributions and
-decide whether to merge them or not are identified. Also, how a decision is made about pull requests (PR) is discussed in details.
+decide whether to merge them or not are identified. Also, how a decision is made about pull requests is discussed in details.
 
 #### Identification  
 According to the activities regarding reviewing and merging recent pull requests, we identify @[TimvdLippe](https://github.com/TimvdLippe)
@@ -125,7 +126,7 @@ also show up frequently to help to review the pull requests and give suggestions
 
 #### Challenges  
 The integrators often hold different opinions towards a single pull request. For instance, in [#932](https://github.com/mockito/mockito/pull/932),
-@[TimvdLippe](https://github.com/TimvdLippe) and [@szczepiq](https://github.com/szczepiq) were in favor of the change while @[bric3](https://github.com/bric3)
+@[TimvdLippe](https://github.com/TimvdLippe) and @[szczepiq](https://github.com/szczepiq) were in favor of the change while @[bric3](https://github.com/bric3)
 thought the issue was more like a GitHub bug and he preferred not to fix it themselves. Another example is [#942](https://github.com/mockito/mockito/pull/942)
 where @[TimvdLippe](https://github.com/TimvdLippe) hoped to see more tests specifically for Java8 before merging it, while @[szczepiq](https://github.com/szczepiq)
 thought it was more desirable to forward the pull request even without the tests. We can then tell that integrators
@@ -384,15 +385,22 @@ The solid pink links show the steps for users to implement a unit test.
 Users mock an object through org.mockito.Mockito,
 and then stub it or apply other actions to the object,
 at last verify behaviors.
+
 The bidirectional green dash line and monodirectional blue dash line
 show the interaction between interfaces inside org.mockito.
 It means the interfaces at the origin can call the methods from the interfaces at the direction of the arrow.
-As for the bidirectional dash line,
-it means the interfaces on both sides can call methods from each other.
 
-![Functional_model](images-mockito/functional_model.jpg)
+![Functional_model](images-mockito/functional_model.png)
 
 Figure 5. Functional structure model  
+
+Following clarifies how the three main functionalities interact with other modules shown in Figure 5. The module `mock` calls from `listeners` to 
+register a listener for method invocations on this mock. In reverse, the listener is notified every time a method on this mock is called. 
+`mock` also calls `Answer` from `stubbing` to create a mock with default answer. The module `plugins` utilizes `mock` to 
+provide Android developers with mock creation options thus they can avoid the default byte-buddy/asm/objenesis implementation [[5]](#Reference).
+
+The module `stubbing` calls from `invocation` to get the stubbed method returned. Module `configuration` depends on `stubbing` to offer users options 
+to custom the default answer. Module `verification` is depended by `listeners` for a listener to be notified by verification invocations on a mock.
 
 <a name="Evolution_perspective"></a>
 ## Evolution Perspective [[1]](#Reference)
@@ -402,8 +410,12 @@ At this moment, Mockito has many versions since it bases on a continuous release
 Since Mockito moved to Github circa 2012, the team wanted to automate the release process.
 At that time, the build script was based on Ant, after the repository migration the build script was progressively migrated to Gradle. At 2014 one core developer started to experiment continuous delivery of Mockito.
 
-From the first version 0.9 released in 2008 to the latest version 2.7.18 released on 2017-03-18, Mockito has been added many features.
-In Figure 6, we highlight some important versions as example of the evolution.
+From the first version 0.9 released in 2008 to the latest version 2.7.18 released on 2017-03-18, Mockito has many releases and has been added lots of features.
+In Figure 6, we just highlight some important versions as example of the evolution of Mockito.
+The versions chosen are either some versions (or release candidates) with significant new features or the turning point bewtween two main versions, for instance, version 2.1.0 is a turning point from Mockito 1 to Mockito 2. 
+Version 1.0 is the very beginning of Mockito 1, and after the improvements of every latter version till version 1.9.5 rc-1, Mockito 1 growed with a large number of features and functions. 
+At this point, a brand new version of Mockito was needed, and indeed version 2.1.0 (Mockito 2) was released after that. 
+During the period of Mockito 2.x, Mockito is using a continuous delivery model. That's why sometimes only small fixes are found at every version in Mockito 2.x period. 
 The evolution also indicates that the framework is well developed and has a lot of features.
 However, bug fixes and new features are still added, and the Mockito team is preparing for Mockito 3.
 
@@ -429,6 +441,8 @@ They plan to push remaining versions to less prominent but still public reposito
 
 <a name="Technical_debts"></a>
 ## Technical Debts
+
+In this section, several tools are used to analyze the technical debts of Mockito. All the measurements are finished on 29/03/2017.
 
 <a name="Automated"></a>
 ### Automated inspecting code debts with tool  
@@ -579,10 +593,26 @@ Figure 17 shows the tendency of the change of TODOs in each version over last 9 
 
 ![TODOs](images-mockito/TODOs.png)   
 
-Figure 17. An overview about the changes of the TODOs number in each Mockito version
+Figure 17. An overview about the changes of the TODOs number in each Mockito version  
+
+<a name="Conclusion"></a>
+## Conclusion  
+
+This chapter provides the readers with an overview of Mockito from multiple software architectural views and perspectives as defined in Rozanski & 
+Woods's book. Conclusion can be drawn that Mockito is of a highly maintainable architecture as well as low load of technical debts.  
+
+In module structure model, Mockito is divided into four layers. Such a hierarchy is not only easy for users to utilize the functionality without 
+knowing internal implementations, but also beneficial from a maintainability perspective. 
+The functionalities of Mockito are around the main process of mocking, that is, mocking, stubbing and verification. Based upon this, many more 
+user-friendly APIs are derived.  
+
+Mockito keeps a low load of technical debts although it has been existing for nine years (till April, 2017). The size of its code base has been kept 
+stable around 80 thousand lines ever since Mockito 2. Another notable observation is that its test coverage is high as 86.56% when analyzed. 
+ 
+To conclude, Mockito is a well-organized open source project that is under high quality of maintaining and development. Given the healthy status with issues 
+fixed and new features introduced at a proper pace, we believe that Mockito will become an even more popular mocking framework in the future. 
 
 <a name="Reference"></a>
-
 ## References
 [1] Nick Rozanski and Eoin Woods. Software Systems Architecture: Working with Stakeholders using  Viewpoints and Perspectives. Addison-Wesley, 2012. Available: http://www.viewpoints-and-perspectives.info/home/book/. Accessed on: 3rd April 2017.  
 [2] Mockito, version 2. [Online]. Available: http://site.mockito.org/. Accessed on: 3rd April 2017.  
@@ -597,4 +627,4 @@ Figure 17. An overview about the changes of the TODOs number in each Mockito ver
 Accessed on: 03 April 2017.  
 [9] SonarQube Documentation, Metrics. [Online]. Available: https://docs.sonarqube.org/display/SONAR/Metrics+-+Complexity. Accessed on: 03 April 2017.  
 [10] WIKI, Cyclomatic complexity. [Online]. Available: https://en.wikipedia.org/wiki/Cyclomatic_complexity. Accessed on: 03 April 2017.  
-[11] CodeCov, Mockito coverage. [Online]. Available: https://codecov.io/github/mockito/mockito. Accessed on: 30 March 2017.
+[11] CodeCov, Mockito coverage. [Online]. Available: https://codecov.io/github/mockito/mockito. Accessed on: 30 March 2017.  
