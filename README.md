@@ -14,7 +14,7 @@ _Delft Students on Software Architecture_, a collection of 27 architectural desc
 
 [in4315]: http://www.studiegids.tudelft.nl/a101_displayCourse.do?course_id=38330
 
-In this course, teams of 3-4 students could adopt a project of choice on GitHub.
+In this course, teams of approximately 4 students could adopt a project of choice on GitHub.
 The projects selected had to be sufficiently complex and actively maintained (one or more pull requests merged per day).
 The systems are from a wide range of domains, including testing frameworks ([Mockito], [JUnit5]), editors ([Neovim], [VSCode]), music ([Beets]), and visualisation ([Kibana]).
 
@@ -61,24 +61,19 @@ The students assessed the current debt in the systems and provided proposals on 
 
 ## First-Hand Experience
 
-```
-TODO: Write this section. Collect all PRs and write a nice summary.
-TODO: Link to collaborative chapter when we are adding this.
-```
+Last but not least, the students tried to make themselves useful by contributing to the actual projects.
+Many pull requests have been opened, including documentation improvements ([Scrapy #2636][Scrapy 2636]), bug fixes ([Jupyter #2220][Jupyter 2220]), style / tooling fixes ([yarn #2725][yarn 2725]) or even feature implementations ([JabRef #2610][JabRef 2610], [JUnit5 #723][JUnit5 723]).
+Doing these contributions the students had the ability to interact with the community; the often discussed with other developers and architects of the systems. This provided them insights in the architectural trade-offs made in these systems.
 
-Last but not least, the chapters are also based on the student's experience in actually contributing to the systems described.
-As part of the course over 75 pull requests to the projects under study were made, including refactorings ([Ember 13088], [Rails 24198]), bug fixes ([Terasology 2235]), new features ([Karma 1983]), test cases ([Sonic-Pi 1054]), translations ([OpenTripPlanner 2232]), and documentation ([OpenCV 4375]).
-Many projects had issues explicitly marked as "good for new contributors", making it easier for students to find a good starting point.
+[JabRef 2610]: https://github.com/JabRef/jabref/pull/2610
+[JUnit5 723]: https://github.com/junit-team/junit5/pull/723
+[Jupyter 2220]: https://github.com/jupyter/notebook/pull/2220
+[Scrapy 2636]: https://github.com/scrapy/scrapy/pull/2636
+[yarn 2725]: https://github.com/yarnpkg/yarn/pull/2725
 
-[Karma 1983]: https://github.com/karma-runner/karma/pull/1983
-[Ember 13088]: https://github.com/emberjs/ember.js/issues/13088
-[Terasology 2235]: https://github.com/MovingBlocks/Terasology/pull/2235
-[Rails 24198]: https://github.com/rails/rails/pull/24198
-[Sonic-Pi 1054]: https://github.com/samaaron/sonic-pi/pull/1054
-[OpenCV 4375]: https://github.com/Itseez/opencv/issues/4375
-[OpenTripPlanner 2232]: https://github.com/opentripplanner/OpenTripPlanner/pull/2232
+The students have written a collaborative chapter on some of the contributions made during the course. It can be found in the dedicated [contributions chapter][contrib-chapter].
 
-Through these contributions the students often interacted with lead developers and architects of the systems under study, gaining first-hand experience with the architectural trade-offs made in these systems.
+[contrib-chapter]: (contributions-chapter/chapter.md)
 
 ## Feedback
 
