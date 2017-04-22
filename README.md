@@ -1,11 +1,12 @@
 # Delft Students on Software Architecture: DESOSA 2017
 
 
-**[Arie van Deursen], [Maurício Aniche], [Valentine Mairet] and [Sander van den Oever].**<br/>
+**[Arie van Deursen], [Andy Zaidman], [Maurício Aniche], [Valentine Mairet] and [Sander van den Oever].**<br/>
 *Delft University of Technology, The Netherlands, April 17, 2017, Version 1.0*
 
 [arie van deursen]: https://avandeursen.com
-[maurício aniche]: https://github.com/mauricioaniche
+[Andy Zaidman]: http://www.st.ewi.tudelft.nl/~zaidman/
+[maurício aniche]: http://www.mauricioaniche.com
 [Valentine Mairet]: https://github.com/valmai
 [Sander van den Oever]: https://github.com/sandervdo
 
