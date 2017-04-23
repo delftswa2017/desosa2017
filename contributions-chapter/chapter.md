@@ -94,7 +94,7 @@ While some teams fixed reported bugs, other teams also discovered bugs themselve
 An example issue was found by team Yarn, where the initial run of the test suite failed on one of the team members computers.
 The underlying issue was usage of spaces in the local directory of Yarn.
 Based on [a similar issue on the Node repository][YarnNode], the fix was to escape (with quotes), the executing location of Yarn in the test suite.
-Consequently a pull request ([#2700][Yarn2700] :white_check_mark:) was opened and quickly merged thereafter by [@bestander].
+Consequently, a pull request ([#2700][Yarn2700] :white_check_mark:) was opened and quickly merged thereafter by [@bestander].
 
 A similar issue was found, where running the test suite broke on the initial checkout.
 This time, pre-existing usage of Yarn influenced the outcome of the test suite.
