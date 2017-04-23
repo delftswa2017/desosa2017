@@ -103,7 +103,7 @@ An initial fix was submitted ([#2725][Yarn2725] :construction:), but was insuffi
 At the moment of writing, the pull request is still ongoing as mocking the configuration has been unsuccesful thus far.
 
 Several members of team Yarn use Yarn in their daily development toolkit too.
-In a different course, they were using Yarn as well and discovered a bug!
+In a different course, they were using Yarn as well and discovered a bug.
 Packages which do not supply binaries would be logged by Yarn.
 However, the call to the reporter missed an argument of the package name.
 As team Yarn was familiar with the architecture of the project, finding the issue took little time and [#2969][Yarn2969] :white_check_mark: was submitted to fix this small issue.
