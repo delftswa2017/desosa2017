@@ -71,7 +71,7 @@ if (ignoreCase) {
 		if (diff === 32 || diff === -32) {
 			// ascii -> equalIgnoreCase
 			continue;
-		}
+	  }
 
 	} else if (word[i].toLowerCase() === wordToMatchAgainst[i].toLowerCase()) {
 		// nonAscii -> equalIgnoreCase
@@ -90,13 +90,83 @@ The maintainer pushed a fix for the problem which reused an already-existing met
 [VS22743]: https://github.com/Microsoft/vscode/pull/22743
 [@sandy081]: https://github.com/sandy081
 
+While some teams fixed reported bugs, other teams also discovered bugs themselves.
+An example issue was found by team Yarn, where the initial run of the test suite failed on one of the team members computers.
+The underlying issue was usage of spaces in the local directory of Yarn.
+Based on [a similar issue on the Node repository][YarnNode], the fix was to escape (with quotes), the executing location of Yarn in the test suite.
+Consequently, a pull request ([#2700][Yarn2700] :white_check_mark:) was opened and quickly merged thereafter by [@bestander].
+
+A similar issue was found, where running the test suite broke on the initial checkout.
+This time, pre-existing usage of Yarn influenced the outcome of the test suite.
+The tests were therefore not run in isolation and could be influenced by the configuration of the user.
+An initial fix was submitted ([#2725][Yarn2725] :construction:), but was insufficient as [@bestander] pointed out the test suite should use mocks instead.
+At the moment of writing, the pull request is still ongoing as mocking the configuration has been unsuccesful thus far.
+
+Several members of team Yarn use Yarn in their daily development toolkit too.
+In a different course, they were using Yarn as well and discovered a bug.
+Packages which do not supply binaries would be logged by Yarn.
+However, the call to the reporter missed an argument of the package name.
+As team Yarn was familiar with the architecture of the project, finding the issue took little time and [#2969][Yarn2969] :white_check_mark: was submitted to fix this small issue.
+
+[YarnNode]: https://github.com/nodejs/node/issues/6803
+[Yarn2700]: https://github.com/yarnpkg/yarn/pull/2700
+[Yarn2725]: https://github.com/yarnpkg/yarn/pull/2725
+[Yarn2969]: https://github.com/yarnpkg/yarn/pull/2969
+[@bestander]: https://github.com/bestander
+
 ## Technical debt
 
 Another popular topic was technical debt. As part of the course the (amount of) technical debt was analysed using tools, such as [SonarQube]. Teams could use their findings to improve the projects that they were analysing.
 
 For instance, the Kibana team tried to remove unnecessary usage of the [Lodash] library ([#10746][KI10746] :white_check_mark:). There are multiple methods in Lodash that can easily be replaced by very similar native ES6 methods. These unnecessary lodash methods have been removed in the contribution. Using different tools to look for technical debt the Kibana team found more issues. Some syntax errors were found in the test code. There was an incorrect `.json` file and a quoting issue with a `.sh` file. This was another possibility for a contribution ([#10747][KI10747] :white_check_mark:).
 
+Besides removing packages, outdated dependencies can also be upgraded.
+The Yarn team did a cleanup ([#2812][Yarn2812] :white_check_mark:) to upgrade the old dependencies.
+Additionally, several breaking changes of the typechecker [Flow] were fixed.
+This pull request was merged within a couple of days by [@bestander].
+As a consequence of this pull request, now whenever [Flow] releases a new version, Yarn upgrades within a couple of days in contrast to the months it took before.
+
+While external dependencies can be outdated, internal function calls can be too.
+An example is an internal logging call in Yarn, which was using the `console` directly, rather than their new `Reporter` infrastructure.
+Team Yarn submitted a simple line change ([#2844][Yarn2844] :construction:), but [@bestander] pointed out that there was an undocumented reason for sticking to `console`.
+In fact, [@kittens] pointed out in [a different pull request][Yarn1980] (that is still open) that it would break external tooling integration.
+Up to this point, there is no test that verifies this issue to ensure no breaking changes are introduced.
+For this reason, [#2844][Yarn2844] is blocked and left open until the underlying issue has been resolved.
+
+## New features and behavioral changes
+
+Besides documentation/bug fixes and resolving technical debt, teams also contributed new features and (potentially breaking) behavioral changes.
+
+The direct competitor and inspiration of Yarn, npm, changed in its latest major version a behavioral change regarding the output of error logs of npm.
+Since compatibility with npm is one of the main goals of Yarn, it is important to update the code of Yarn accordingly.
+Therefore, [#2870][Yarn2870] :construction: was submitted to fix this.
+This pull request also included a brand new test suite to test the entrypoint of Yarn: [`src/cli/index.js`][Yarnindexjs], which was untested up to this point.
+Initially, [@bestander] was reluctant to change the behavior, but pointed out a different and more user-friendly solution.
+At the moment, the pull request still has to be updated to incorporate the feedback.
+
+An interesting side-note is that in [#2870][Yarn2870] a different bug was found in the `--cache-folder` option on the commandline.
+While the pull request is not merged, this particular bug fix was incorporated by [Facebook] employee [@arcanis] in [#3033][Yarn3033].
+
+Measuring and maintaining good code coverage is required to remain with a healthy software project.
+Correctly calculating code coverage is therefore crucial, to measure which parts of a project require tests to keep confidence in the product.
+While investigating technical debt, team Yarn discovered that the code coverage tool of Yarn was incorrectly configured and did not report completely untested files.
+Luckily, [Jest] (the testrunner used by Yarn) incoporates code coverage calculation and has configuration available.
+A one-line change pull request ([#2892][Yarn2892] :white_check_mark:) was submitted to fix this inconsistency and sadly point out that the code coverage of Yarn was 20 percent lower than previously reported.
+As a consequence, the Yarn core developers shifted more focus on tests and now more strictly enforce tests when integrating pull requests.
+
 [KI10746]: https://github.com/elastic/kibana/pull/10746
 [KI10747]: https://github.com/elastic/kibana/pull/10747
+[Yarn2812]: https://github.com/yarnpkg/yarn/pull/2812
+[Yarn2844]: https://github.com/yarnpkg/yarn/pull/2844
+[Yarn1980]: https://github.com/yarnpkg/yarn/pull/1980#discussion_r89621763
+[Yarn2870]: https://github.com/yarnpkg/yarn/pull/2870
+[Yarn2892]: https://github.com/yarnpkg/yarn/pull/2892
+[Yarn3033]: https://github.com/yarnpkg/yarn/pull/3033/files#diff-867becf4a9c2c6c6d4e7c1278750724eR372
+[Yarnindexjs]: https://github.com/yarnpkg/yarn/blob/6d8dcec7e84d7271bc3acde2946cfcc5a93b530f/src/cli/commands/index.js
 [SonarQube]: https://www.sonarqube.org/
 [Lodash]: https://lodash.com
+[Flow]: https://flow.org/
+[Facebook]: https://facebook.com
+[Jest]: https://facebook.github.io/jest/
+[@kittens]: https://github.com/kittens
+[@arcanis]: https://github.com/arcanis
