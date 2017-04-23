@@ -160,6 +160,7 @@ As a consequence, the Yarn core developers shifted more focus on tests and now m
 [Yarn2844]: https://github.com/yarnpkg/yarn/pull/2844
 [Yarn1980]: https://github.com/yarnpkg/yarn/pull/1980#discussion_r89621763
 [Yarn2870]: https://github.com/yarnpkg/yarn/pull/2870
+[Yarn2892]: https://github.com/yarnpkg/yarn/pull/2892
 [Yarn3033]: https://github.com/yarnpkg/yarn/pull/3033/files#diff-867becf4a9c2c6c6d4e7c1278750724eR372
 [Yarnindexjs]: https://github.com/yarnpkg/yarn/blob/6d8dcec7e84d7271bc3acde2946cfcc5a93b530f/src/cli/commands/index.js
 [SonarQube]: https://www.sonarqube.org/
