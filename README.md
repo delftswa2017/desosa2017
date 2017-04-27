@@ -31,7 +31,7 @@ During an 8-week period, the students spent one third of their time on this cour
 Inspired by Brown and Wilsons' [Architecture of Open Source Applications][aosa], we decided to organize each description as a chapter, resulting in the present online book.
 
 This book is the third in volume the DESOSA series: The [first DESOSA book][desosa2015] resulted from the 2015 edition of the course, and contained architectural descriptions of ten (different) open source systems.
-The [second DESOSA book] followed a year later, including 21 architectural descriptions.
+The [second DESOSA book][desosa2016] followed a year later, including 21 architectural descriptions.
 
 [desosa2015]: https://delftswa.github.io/
 [desosa2016]: https://delftswa.gitbooks.io/desosa2016/
