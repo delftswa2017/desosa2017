@@ -15,6 +15,7 @@
 * [Netty](netty/chapter.md)
 * [Node](node/chapter.md)
 * [Processing](processing/chapter.md)
+* [Scikit-learn](scikit-learn/chapter.md)
 * [Scrapy](scrapy/chapter.md)
 * [Syncthing](syncthing/chapter.md)
 * [Telegram Web](telegram-web/chapter.md)
