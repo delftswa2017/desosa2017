@@ -4,7 +4,7 @@ By [N.Bakker](https://github.com/i-am-xhy), [R.Kharisnawan](https://github.com/r
 
 _Delft University of Technology, 2016_
 
-![](images-team-scikit-learn/scikit-learn-logo.png)
+![](/images-team-scikit-learn/scikit-learn-logo.png)
 
 ## _Abstract_ {#abstract}
 
@@ -14,7 +14,7 @@ _Scikit-learn started as a Google Summer of code project by David Cournapeau 9 y
 
 This chapter describes scikit-learn from the software architecture perspective. Scikit-learn is an open source machine learning library in the Python programming language. It has been growing and becoming more popular because of its efficiency and simplicity in use. Also, the fact that it is an open source library makes scikit-learn not only used by companies but also by individuals.
 
-The chapter starts with a stakeholder analysis of the scikit-learn library. In this section, stakeholders are identified and an analysis is given on how they influence the library. This is done through Rozanski and Woods' classification, an additional stakeholders analysis, and a power-interest grid analysis. In addition, the project integrators are also identified. The section is followed by software views, which consists of the context, development, and deployment view. In this section, scikit-learn is explored from different kind of views to give a better understanding on how the library works, both internally and externally. The next section is software debts, which discusses technical debt and testing debt. Lastly, the chapter is closed with the conclusion of the whole analysis.
+The chapter starts with a stakeholder analysis of the scikit-learn library. In this section, stakeholders are identified and an analysis is given on how they influence the library. This is done through Rozanski and Woods' classification, an additional stakeholders analysis, and a power-interest grid analysis. In addition, the project integrators are also identified. The section is followed by software views, which consists of the context, development, and deployment view. In this section, scikit-learn is explored from different kind of views to give a better understanding on how the library works, both internally and externally. Perspective on computational performance gives further explanation on performance of scikit-learn as machine learning library. The next section is software debts, which discusses technical debt and testing debt. Lastly, the chapter is closed with the conclusion of the whole analysis.
 
 # Stakeholders Analysis
 
@@ -75,7 +75,7 @@ Users are those who eventually use the system. Several examples of users are Spo
 
 With the categorization of stakeholders in the method proposed by Rozanski & Woods \[2\], we can find relevant stakeholders for most categories. However, it is noticeable that many stakeholders appear in many different categories in some way. In this section, a new categorization of the stakeholders is introduced to make the categories more distinct and the roles less intertwined. This categorization is less generally applicable, since it's tailored to scikit-learn. The different categories are contributors, users, funders and competitors.
 
-![](images-team-scikit-learn/stakeholder.jpg)  
+![](/images-team-scikit-learn/stakeholder.jpg)  
 _Figure 1: Visualization of the stakeholder categories for scikit-learn._
 
 ### Contributors
@@ -110,7 +110,7 @@ Because of this complexity, they also need to handle their Integrators with extr
 
 Figure 2 shows the quadrants of power and interest of scikit-learn stakeholders. The x-axis determines interest of stakeholders to scikit-learn which is divided into low and high interest. The interest of stakeholders is demonstrated by their willingness to explore, use, or contribute to the library. Contributions could be in the form of funding or taking part in development. The y-axis determines the power of stakeholders which is also divided into low and high power. Power is related to how influential the stakeholder is in scikit-learn's past, current, and future development. Therefore, the most powerful entities are in the upper-right quadrant and the least powerful ones in the opposite lower-left quadrant. As an example, Andreas Müller is in the upper-right quadrant because he has been the release manager since 2016, which indicates his high interest and influence in the development process. On the other hand, David and Matthieu were founders of scikit-learn \[1\] but they are not active in the development any more. Thus, they are classified in the high interest and low power area.
 
-![](images-team-scikit-learn/powerinterest.png)  
+![](/images-team-scikit-learn/powerinterest.png)  
 _Figure 2: Power-Interest grid._
 
 # Views
@@ -129,7 +129,7 @@ Scikit-learn was developed to provide easier implementation of data analysis met
 
 Figure 3 describes the relationship between scikit-learn and its environment. It consists of ten external entity types which are related to scikit-learn. Each entity has a specific relationship to the library, for example users use scikit-learn or GitHub manages versioning and issue tracking for scikit-learn. Each specific entity inside an entity type may have a different weight of closeness to the library depending on their interactions, for example INRIA may have a stronger relation compared to Paris-Saclay Center for Data Science because they are still sponsoring scikit-learn at the time of writing.
 
-![](images-team-scikit-learn/contextview_2.png)
+![](/images-team-scikit-learn/contextview_2.png)
 
 _Figure 3: Context View._
 
@@ -148,7 +148,7 @@ The module structure model defines the organization of the system’s source cod
 * Build tool layer, which contains build modules \[37\] to build the library. Each module consists of files to download, install, testing, or setting the required library.
   Dependency of one layer to the other layer\(s\) is demonstrated by a dashed arrow which points to the destination of the required layer. As an example, the utility layer uses all libraries available from python, NumPy, SciPy, and Pandas by importing them in the module. In addition, there are explicit intermodule dependencies for all modules in the domain layer for python because all files under each module requires python. 
 
-![alt tag](images-team-scikit-learn/modules_model.jpeg)  
+![alt tag](/images-team-scikit-learn/modules_model.jpeg)  
 _Figure 4: Modules Structure Model._
 
 This model answers the first concern of Rozanski and Woods addressed by the development view \[2\] by giving a better understanding of the module organization. Each module consists of hundred, possibly thousands, of source files and even more lines of code, which are used to implement libraries or functional elements. As a software architect it is useful to know the generic view of a system before going too much into detail. By analyzing through this model, we understand better in which way scikit-learn has been managed and the depencies between modules are clearly highlighted. In this library, a module is usually representated by a folder in the sklearn directory\[9\].
@@ -159,7 +159,7 @@ Another good thing that can be inferred by this model is how to arrange code in 
 
 The deployment view is what looks into how the program is expected to operate in live operation. It will show what "hidden" dependencies scikit-learn has, it's runtime environment and lastly the required specialist knowledge for \(parts of\) scikit-learn.
 
-![alt tag](images-team-scikit-learn/deployment_view.png)  
+![alt tag](/images-team-scikit-learn/deployment_view.png)  
 _Figure 3A: the deployment view for scikit-learn_
 
 ### Dependencies
@@ -190,6 +190,23 @@ To use Scikit-learn\('s full potential\) a lot of specialist knowledge is requir
 * Linear algebra, practically a demand for using scikit-learn as it is used almost everywhere that constitutes actual functionality. In addition, it is often a prerequisite for the other knowledge areas.
 * Machine learning, scikit-learn allows use of neural network techniques, k-means and other techniques to provide most of its functionality.
 * Set/collection theory, operations on and properties of sets are \(implicitly\) used as the basis for certain operations \(such as biclustering, mean\_shift and kmeans\)
+
+# Perspective
+
+## Computational performance perspective
+
+One of important perspective of implementing machine learning library is computational performance. There are two computational performance metrics that can be used: latency and throughput at prediction time. Optimization is usually done to minimize latency and maximize throughput but it can hurt prediction accuracy.
+
+### Prediction latency
+Prediction latency is measured as the elapsed time necessary to make a prediction (e.g. in micro-seconds) \[38\]. There are four main factors that influence the prediction latecy: number of features, input data representation and sparsity, model complexity, feature extraction. 
+Number of features affects memory consumption, which shows number of basic operations, such as multiplications for vector-matrix products. Matrix of M instances with N features will result O(NxM) space complexity. 
+In sparse input data representation, optimization using sparse format is essential to make performance better by not storing zeros which will lead to less memory consumption. As a rule of thumb you can consider that if the sparsity ratio is greater than 90% you can probably benefit from sparse formats \[38\].
+Model complexity will lead to more predictive power and latency. Increasing predictive power is usually interesting, but for many applications we would better not increase prediction latency too much \[38\].
+In many real world applications the feature extraction process (i.e. turning raw data like database rows or network packets into numpy arrays) governs the overall prediction time \[38\]. In many cases it is thus recommended to carefully time and profile your feature extraction code as it may be a good place to start optimizing when your overall latency is too slow for your application.
+
+### Prediction throughput
+Prediction throughput is defined as the number of predictions the software can deliver in a given amount of time (e.g. in predictions per second) \[38\]. There are several ways to improve prediction throughput, such as spawn additional instances that share same model or add more machines to spread the load.
+
 
 # Software Debts
 
@@ -395,26 +412,26 @@ We found 76 occurrences of _TODO_ comments, spread out over 48 files. Four of th
 
 The following picture sums up how well this method works for discussing technical debt:
 
-![](images-team-scikit-learn/FixMeSoon.PNG)  
+![](/images-team-scikit-learn/FixMeSoon.PNG)  
 _Figure 16: “FIXME” comment added long ago, which is still present in the code now._
 
 ### Testing debt
 
 #### Code Testing
 
-The code coverage for scikit-learn is currently at 94.76% which is very good. We can see a breakdown of the code coverage for different modules in the barplot in Figure 17. The full information can be found here \[24\]. Despite having modules where the code coverage is low\(e.g. datasets\) overall the system is tested very well.
+The code coverage for scikit-learn on 16 March was 94.76% which is very good. We can see a breakdown of the code coverage for different modules in the barplot in Figure 17. The full information can be found here \[24\]. Despite having modules where the code coverage is low\(e.g. datasets\) overall the system is tested very well.
 
 The major contributors of scikit-learn have agreed upon approximately 90% coverage. Also, the project is well tested by implementing unit-testing. Unit testing as the developers in scikit-learn mention is "a corner-stone of the scikit-learn development process" \[2\].
 
 We have also made a barplot where it is easier to see the different coverage scores for the different modules. We can identify the big difference of code coverage between the datasets module and the other modules.
 
-![](images-team-scikit-learn/codecovw.jpg)
+![](/images-team-scikit-learn/codecovw.jpg)
 
 _Figure 17: Code coverage about different modules ordered._
 
 In addition, the project of scikit-learn relies on integration testing services like Travis CI \[14\], circleci \[12\] and AppVeyor \[13\]. It is a common procedure of the scikit-learn testing procedure to report the results of tests on continuous integration \(CI\) platforms. We can see an example of successful and unsuccessful testing on a PR in the figure below. All PRs need to pass all five check tests from different CI platforms before it gets merged: ci/circleci, codecov/patch, codecov/project, continuous-integration/appveyor/pr, and continuous-integration/travis-ci/pr. Thus, all changes in scikit-learn are well-tested and it reduces the risk. Also, it helps the reviewers to make decisions about which PR should be merged and to give constructive advice to the authors in order to fix PR.
 
-![](images-team-scikit-learn/integration.png)  
+![](/images-team-scikit-learn/integration.png)  
 _Figure 18: Tests on different CI platforms._
 
 **Testing results on CI platforms.**
@@ -433,7 +450,7 @@ This issue attracted the attention of a couple developers in scikit-learn. They 
 
 # Conclusion
 
-In the beginning of the chapter the different stakeholders of scikit-learn were introduced. Initially, the categories as defined by Rozanski & Woods were used, but using four main categories of stakeholders were more applicable to scikit-learn, which are contributors, users, funders and competitors. This section was followed by the views sections where three different aspects of the architecture were discussed through the use of the context view, the Development View and Deployment View. The Development View consisted of the Module Structure Model. The Module Structure Model identified the structure of the code in terms of how the code was grouped into modules. Finally, the Deployment View looked at the system in operation. It identified dependencies required to run and install scikit-learn, the environment needed to run it in and it also identified the need for specialist knowledge to utilize scikit-learn to it's fullest. The last section looked at two main aspects of software debt, technical and testing debt. It started off with a section about looking at technical debt through the SOLID principles. This concluded that the SOLID principles are not fully applicable to this project due to using Python.  In this section, we also found that one prominent form of technical debt were _TODO_ and _FIXME_ comments. To mitigate this debt, we proposed a work-flow for adding these issues to GitHub one by one so that they could be tracked and solved more easily. Through our interactions with the scikit-learn contributors, we learned that they struggle with having enough expert knowledge to deal with these issues. When looking at the testing debt, it was evident that scikit-learn has high test coverage \(94.76%\) and that the contributors put in a lot of effort to keep this coverage high when reviewing pull requests. High test coverage really is a corner-stone of their development process. This is also noticeable when submitting a pull request since various continuous integration tools need to pass before a pull request can be approved.
+In the beginning of the chapter the different stakeholders of scikit-learn were introduced. Initially, the categories as defined by Rozanski & Woods were used, but using four main categories of stakeholders were more applicable to scikit-learn, which are contributors, users, funders and competitors. This section was followed by the views sections where three different aspects of the architecture were discussed through the use of the context view, the Development View and Deployment View. The Development View consisted of the Module Structure Model. The Module Structure Model identified the structure of the code in terms of how the code was grouped into modules. Finally, the Deployment View looked at the system in operation. It identified dependencies required to run and install scikit-learn, the environment needed to run it in and it also identified the need for specialist knowledge to utilize scikit-learn to it's fullest. The perspective on computational performance is the additional section to explore more about performance of scikit-learn as machine learning library. The last section looked at two main aspects of software debt, technical and testing debt. It started off with a section about looking at technical debt through the SOLID principles. This concluded that the SOLID principles are not fully applicable to this project due to using Python.  In this section, we also found that one prominent form of technical debt were _TODO_ and _FIXME_ comments. To mitigate this debt, we proposed a work-flow for adding these issues to GitHub one by one so that they could be tracked and solved more easily. Through our interactions with the scikit-learn contributors, we learned that they struggle with having enough expert knowledge to deal with these issues. When looking at the testing debt, it was evident that scikit-learn has high test coverage \(94.76%\) and that the contributors put in a lot of effort to keep this coverage high when reviewing pull requests. High test coverage really is a corner-stone of their development process. This is also noticeable when submitting a pull request since various continuous integration tools need to pass before a pull request can be approved.
 
 ## References
 
@@ -510,4 +527,6 @@ In the beginning of the chapter the different stakeholders of scikit-learn were 
 \[36\] [https://www.scipy.org](https://www.scipy.org)
 
 \[37\] [https://github.com/scikit-learn/scikit-learn/tree/master/build\_tools](https://github.com/scikit-learn/scikit-learn/tree/master/build_tools)
+
+\[38\] [http://scikit-learn.org/stable/modules/computational_performance.html](http://scikit-learn.org/stable/modules/computational_performance.html)
 
