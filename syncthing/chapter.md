@@ -10,7 +10,7 @@ By Jayachithra Kumar, Lidia Fernandez, Robert Carosi, Sacheendra Talluri
 
 # Abstract
 
-Syncthing is an application that enables users to synchronise files across different devices. The application is actively maintained and developed by a relatively small group of developers. The foci of the application are preventing data loss, security from attackers and ease of use. Through our analysis, we found that the simplicity of the architecture, consisting of three major layers, allows for easy addition of features while still maintaining the robustness of the core layer consisting of the synchronisation logic. In general, we observe that Syncthing is a well engineered project without glaring technical holes or major debt. 
+Syncthing is an application that enables users to synchronise files across different devices. The application is actively maintained and developed by a relatively small group of developers. The foci of the application are preventing data loss, security from attackers and ease of use. Through our analysis, we found that the simplicity of the architecture, consisting of three major layers, allows for easy addition of features while still maintaining the robustness of the core layer consisting of the synchronisation logic. In general, we observe that Syncthing is a well engineered project without glaring technical holes or major debt.
 
 # Table of Content
 
@@ -37,9 +37,9 @@ Syncthing is an application that enables users to synchronise files across diffe
 
 ## Introduction
 
-Syncthing is a software application used for synchronising files across devices. As its major purpose is reliable transport of information, we considered it to be a software worth studying. In our study, we document and analyse the engineering process of Syncthing. We hope it will provide the readers a resource to look at while building a software of similar nature. That is, software which deals with user data of utmost importance and is responsible for tasks critical for the safety of the data such as backups. 
+Syncthing is a software application used for synchronising files across devices. As its major purpose is reliable transport of information, we considered it to be a software worth studying. In our study, we document and analyse the engineering process of Syncthing. We hope it will provide the readers a resource to look at while building a software of similar nature. That is, software which deals with user data of utmost importance and is responsible for tasks critical for the safety of the data such as backups.
 
-Our analysis consists primarily of three parts. The first part deals with the different views of the system. The views give an understanding of the socio-technical environment the system operates in. They also give an understanding of the basic principles the system is organised around. The second part gives a more technical description of the system. It consists of different models and a perspective which show the technical design of the system and the decisions that went into that design. The last section is about technical debt. Any software which has been around for sometime builds up technical debt. How the debt is managed is what makes this section interesting. 
+Our analysis consists primarily of three parts. The first part deals with the different views of the system. The views give an understanding of the socio-technical environment the system operates in. They also give an understanding of the basic principles the system is organised around. The second part gives a more technical description of the system. It consists of different models and a perspective which show the technical design of the system and the decisions that went into that design. The last section is about technical debt. Any software which has been around for sometime builds up technical debt. How the debt is managed is what makes this section interesting.
 
 <div id="views"></div>
 
@@ -49,29 +49,29 @@ Our analysis consists primarily of three parts. The first part deals with the di
 
 ### Stakeholder View
 
-**Users** use Syncthing to synchronise their files across different devices. We believe it has a significant amount of users. We extrapolate this from the data found here[[1](#userdata)] and also from the number of stars on the Github repository. When last checked, Syncthing had 22919 daily active users with reporting enabled and 15106 stars. 
+**Users** use Syncthing to synchronise their files across different devices. We believe it has a significant amount of users. We extrapolate this from the data found here[[1](#userdata)] and also from the number of stars on the Github repository. When last checked, Syncthing had 22919 daily active users with reporting enabled and 15106 stars.
 
-**Developers** contribute code to the project. The most active developers to the project are @[calmh](https://github.com/calmh) and @[AudriusButkevicius](https://github.com/AudriusButkevicius). @[calmh](https://github.com/calmh) is also the **founder**. Occasionally, other developers contribute big features but are not really active after that. The whole list of current developers can be found in this file[[3](#authors)]. 
+**Developers** contribute code to the project. The most active developers to the project are @[calmh](https://github.com/calmh) and @[AudriusButkevicius](https://github.com/AudriusButkevicius). @[calmh](https://github.com/calmh) is also the **founder**. Occasionally, other developers contribute big features but are not really active after that. The whole list of current developers can be found in this file[[3](#authors)].
 
-@[calmh](https://github.com/calmh) and @[AudriusButkevicius](https://github.com/AudriusButkevicius) also have the **maintainer** status. So, they are responsible for the direction the software is going to evolve in. They would also be the de facto **assessors** and **integrators** as they are responsible for any pull request being merged and the overall quality. Specifically, the challenges faced by the **integrators** and how they assess the pull requests is covered in the `Contributions` section of the `Codeline Model`. 
+@[calmh](https://github.com/calmh) and @[AudriusButkevicius](https://github.com/AudriusButkevicius) also have the **maintainer** status. So, they are responsible for the direction the software is going to evolve in. They would also be the de facto **assessors** and **integrators** as they are responsible for any pull request being merged and the overall quality. Specifically, the challenges faced by the **integrators** and how they assess the pull requests is covered in the `Contributions` section of the `Codeline Model`.
 
-The **testers** category is an interesting category as the **developers** themselves are the testers in most cases. The maintainers don't accept code without any associated tests[[4](#notests)]. There are also a group of beta testers composed of users and developers. The list can be found here[[5](#betatesters)]. 
+The **testers** category is an interesting category as the **developers** themselves are the testers in most cases. The maintainers don't accept code without any associated tests[[4](#notests)]. There are also a group of beta testers composed of users and developers. The list can be found here[[5](#betatesters)].
 
-The **communicators** category primarily consists of the 2 maintainers and a user named @[rumpelsepp](https://github.com/rumpelsepp). They maintain the documentation up-to-date. There are also several others[[6](#scribes)] who have contributed to the documentation who can be grouped under this category. 
+The **communicators** category primarily consists of the 2 maintainers and a user named @[rumpelsepp](https://github.com/rumpelsepp). They maintain the documentation up-to-date. There are also several others[[6](#scribes)] who have contributed to the documentation who can be grouped under this category.
 
-The **support staff** consists of people who answer questions in the support section of the forum and on the IRC channel. It consists of the maintainers and a few others active on the forum[[7](#support)]. Other members of the community, like users, help each other using the forum. 
+The **support staff** consists of people who answer questions in the support section of the forum and on the IRC channel. It consists of the maintainers and a few others active on the forum[[7](#support)]. Other members of the community, like users, help each other using the forum.
 
-@[calmh](https://github.com/calmh) is a de facto **system administrator** for Syncthing instances that use the public discovery server. It is also possible to use Syncthing without using the public discovery server. In that case, whoever is hosting the discovery server used by that Syncthing instance becomes the **system administrator**. As Syncthing is a low level long running system service. All **users** also share the role of **system administrator** in some capacity. 
+@[calmh](https://github.com/calmh) is a de facto **system administrator** for Syncthing instances that use the public discovery server. It is also possible to use Syncthing without using the public discovery server. In that case, whoever is hosting the discovery server used by that Syncthing instance becomes the **system administrator**. As Syncthing is a low level long running system service. All **users** also share the role of **system administrator** in some capacity.
 
-Kastelo is the official corporate **sponsor** of Syncthing. It is a company founded by the maintainer of Syncthing, @[calmh](https://github.com/calmh). It offers consultancy services and trainings related to Syncthing. 
+Kastelo is the official corporate **sponsor** of Syncthing. It is a company founded by the maintainer of Syncthing, @[calmh](https://github.com/calmh). It offers consultancy services and trainings related to Syncthing.
 
-The Syncthing community provides public relay servers so that people behind firewalls can use Syncthing. These servers can be found here[[8](#relays)]. The operators of these servers are **suppliers** who supply the infrastructure required for the people behind firewalls to use Syncthing. 
+The Syncthing community provides public relay servers so that people behind firewalls can use Syncthing. These servers can be found here[[8](#relays)]. The operators of these servers are **suppliers** who supply the infrastructure required for the people behind firewalls to use Syncthing.
 
-Syncthing is built using the Go programming language. It uses AngularJS for its default front-end and Jenkins for continuous integration. It also uses several major and minor libraries[[9](manifest)]. The communities and companies behind all these projects can be considered software **suppliers** in a loose sense. 
+Syncthing is built using the Go programming language. It uses AngularJS for its default front-end and Jenkins for continuous integration. It also uses several major and minor libraries [[9](#manifest)]. The communities and companies behind all these projects can be considered software **suppliers** in a loose sense.
 
-There are also applications **dependent** on Syncthing for their own functionality. The developers and users of these applications depend on Syncthing to provide the required functionality. Examples include [syncthing-inotify](https://github.com/syncthing/syncthing-inotify), developed by @[Zillode](https://github.com/Zillode)  and [SyncTrayzor](https://github.com/canton7/SyncTrayzor), developed by @[canton7](https://github.com/canton7). 
+There are also applications **dependent** on Syncthing for their own functionality. The developers and users of these applications depend on Syncthing to provide the required functionality. Examples include [syncthing-inotify](https://github.com/syncthing/syncthing-inotify), developed by @[Zillode](https://github.com/Zillode)  and [SyncTrayzor](https://github.com/canton7/SyncTrayzor), developed by @[canton7](https://github.com/canton7).
 
-Syncthing has several **competitors**. Its open source competitors include [Librevault](https://github.com/Librevault/librevault) and several [rsync](https://rsync.samba.org/) based solutions. A popular closed source but distributed file syncronisation service is [BTSync/Resilio](https://www.resilio.com/). Its most popular **competitors** would be [Dropbox](https://www.dropbox.com/), [Google Drive](https://www.google.com/drive/) and others. 
+Syncthing has several **competitors**. Its open source competitors include [Librevault](https://github.com/Librevault/librevault) and several [rsync](https://rsync.samba.org/) based solutions. A popular closed source but distributed file syncronisation service is [BTSync/Resilio](https://www.resilio.com/). Its most popular **competitors** would be [Dropbox](https://www.dropbox.com/), [Google Drive](https://www.google.com/drive/) and others.
 
 The influence various stakeholders have on the project can be seen in [Figure 1](#figure1).
 
@@ -109,10 +109,10 @@ The information view tracks the flow of information through the system. In this 
 *Figure 3: Information Flow diagram with 2 devices*
 
 #### Setup
-When started for the first time on a device, Syncthing generates a Device ID. This is used to uniquely identify devices across the network. This network could be over the internet or a local network. It then broadcasts these IDs on the local network and also registers itself with a discovery server which is generally on the internet. This process is called announcing. Then it makes an index of all the files which are selected to be synchronized. 
+When started for the first time on a device, Syncthing generates a Device ID. This is used to uniquely identify devices across the network. This network could be over the internet or a local network. It then broadcasts these IDs on the local network and also registers itself with a discovery server which is generally on the internet. This process is called announcing. Then it makes an index of all the files which are selected to be synchronized.
 
 #### Adding a device
-As Syncthing is a synchronization tool, adding another device to which files are to be synchronized is an important part of operation. This can be done when the user informs the Syncthing instances on each device of the Device ID of the other device. The Syncthing instances then contact the Discovery server to identify the location of the other device. This is called Querying. Location of the other device can also be obtained by listening for the announcements from that device if both are on the same local network. After obtaining the location of the other device, the Syncthing instances are ready to synchronize. 
+As Syncthing is a synchronization tool, adding another device to which files are to be synchronized is an important part of operation. This can be done when the user informs the Syncthing instances on each device of the Device ID of the other device. The Syncthing instances then contact the Discovery server to identify the location of the other device. This is called Querying. Location of the other device can also be obtained by listening for the announcements from that device if both are on the same local network. After obtaining the location of the other device, the Syncthing instances are ready to synchronize.
 
 #### Synchronization
 This stage is when the exchange of data takes place between the devices. The devices which are to be synchronized exchange the index of files they have. The index on each device is called the local model. The local models of the devices are exchanged and a global model is obtained at each device. This model is then used to synchronize files or updates to files using the Block Exchange Protocol. If possible, this takes place directly between the devices with the devices communicating and exchanging packets directly. But if the devices are not directly reachable (Possible if they are behind a NAT for example), Relay servers are used. When a relay server is in use, packets are first sent to the relay server which pushes them to the destination.
@@ -129,45 +129,45 @@ This stage is when the exchange of data takes place between the devices. The dev
 
 <p align="center">
 	<img src="/syncthing/images-syncthing/module_structure_model.png" alt="Structure Model" width="650"/>
-</p> 
+</p>
 
 *Figure 4: Syncthing's directory structure*
 
-The module structure model describes how the project is organised. [Figure 4](#figure4) is a high level UML component diagram of Syncthing. The project is organised into clearly identifiable layers with somewhat clear dependencies. Generally, the layer depicted above depends on the one depicted below it, but there are some dependencies which don't respect this boundary. 
+The module structure model describes how the project is organised. [Figure 4](#figure4) is a high level UML component diagram of Syncthing. The project is organised into clearly identifiable layers with somewhat clear dependencies. Generally, the layer depicted above depends on the one depicted below it, but there are some dependencies which don't respect this boundary.
 
-The outer boxes represent layers. The inner boxes represent the individual components that form those layers. The arrows represent that the component at the tail of the arrow depends on the component at the head of the arrow. The Platform corresponds to the Go standard library and other external dependencies. The Library is where the major logic of Syncthing like the Block Exchange Protocol, used for exchanging data related to file changes, is implemented. The Command Line Tools are a collection of tools the users actually use to interact with the Syncthing library. The GUI consists of the web based GUI and the command line based GUI. 
+The outer boxes represent layers. The inner boxes represent the individual components that form those layers. The arrows represent that the component at the tail of the arrow depends on the component at the head of the arrow. The Platform corresponds to the Go standard library and other external dependencies. The Library is where the major logic of Syncthing like the Block Exchange Protocol, used for exchanging data related to file changes, is implemented. The Command Line Tools are a collection of tools the users actually use to interact with the Syncthing library. The GUI consists of the web based GUI and the command line based GUI.
 
-The Syncthing server, discovery server, relay server and other miscellaneous components in the command line tools layer are the components users of Syncthing use to synchronise their files across devices. The Syncthing server is the one responsible for synchronising files across the user's devices in a peer to peer manner using the Block Exchange Protocol. The discovery server helps Syncthing servers find other Syncthing servers to synchronise with. The relay servers help Syncthing servers behind firewalls and NAT (Network Address Translation) enabled networks connect to each other. Other miscellaneous components are used to register a relay server with the Syncthing network, get information on files being synchronised by Syncthing and other purposes. 
+The Syncthing server, discovery server, relay server and other miscellaneous components in the command line tools layer are the components users of Syncthing use to synchronise their files across devices. The Syncthing server is the one responsible for synchronising files across the user's devices in a peer to peer manner using the Block Exchange Protocol. The discovery server helps Syncthing servers find other Syncthing servers to synchronise with. The relay servers help Syncthing servers behind firewalls and NAT (Network Address Translation) enabled networks connect to each other. Other miscellaneous components are used to register a relay server with the Syncthing network, get information on files being synchronised by Syncthing and other purposes.
 
-The sync, discovery, protocol and database components in the library layer contain the core logic of Syncthing. The sync component calculates hashes of blocks of files and finds which ones to synchronise. The discovery component uses discovery servers to discover other Syncthing servers and also contains logic for creating a discovery server. The protocol component implements the Block Exchange Protocol which takes care of the key exchange for authorisation and encryption between Syncthing servers and also communicating information about which files need to be synchronised. The database component is used for interacting with the LevelDB database so that Syncthing can store information about other Syncthing servers, synchronised and unsynchronised files, block hashes and user preferences. 
+The sync, discovery, protocol and database components in the library layer contain the core logic of Syncthing. The sync component calculates hashes of blocks of files and finds which ones to synchronise. The discovery component uses discovery servers to discover other Syncthing servers and also contains logic for creating a discovery server. The protocol component implements the Block Exchange Protocol which takes care of the key exchange for authorisation and encryption between Syncthing servers and also communicating information about which files need to be synchronised. The database component is used for interacting with the LevelDB database so that Syncthing can store information about other Syncthing servers, synchronised and unsynchronised files, block hashes and user preferences.
 
-The Go standard library, LevelDB and other miscellaneous libraries form the platform layer. These are used for encrypting network connections, calculating hashes, storing data and several other functions. 
+The Go standard library, LevelDB and other miscellaneous libraries form the platform layer. These are used for encrypting network connections, calculating hashes, storing data and several other functions.
 
 <div id="commo"></div>
 
 ### Common Design Model
 
-The common design model will cover aspects of the software where common design approaches and common software components were used. As Syncthing is written in Go (also referred to as golang), all practices in Effective Go[[11](#effgo)] are enforced. 
+The common design model will cover aspects of the software where common design approaches and common software components were used. As Syncthing is written in Go (also referred to as golang), all practices in Effective Go[[11](#effgo)] are enforced.
 
 **Initialisation:** It refers to the steps a component is required to take before becoming fully functional[[12](#init)].
 
 In Syncthing, all components are required to do the following during initialisation.
- 
-- Instantiate a logger object. This is done inside the `debug.go` which is present in every component. 
-- `main.go` files are used as entry points for command line applications. In these files, the init function is used to store the build date, architecture of the system and golang version to be used for debugging. 
-- In components with `main.go` files, the logger is initialised in the main function. 
 
-**Termination and restart of operation:** It refers to the conventions to be followed when the program terminates either properly or due to an error. It also includes the subsequent steps taken for recovery during a restart. In golang, concurrency is handled through lightweight threads called goroutines. Each goroutine has its own stack trace. When a component exits due to an error, care is taken to ensure that the stacktraces of all the running goroutines are printed. If an issue such as database corruption is detected during restart the user is notified instead of silently logging to a file. 
+- Instantiate a logger object. This is done inside the `debug.go` which is present in every component.
+- `main.go` files are used as entry points for command line applications. In these files, the init function is used to store the build date, architecture of the system and golang version to be used for debugging.
+- In components with `main.go` files, the logger is initialised in the main function.
 
-**Message Logging and Instrumentation:** For the command line applications, the `log` package available in the golang standard library is used. For the main library, a custom logging package is implemented and this is imported and used by every package. The custom logger supports setting the name of the calling component during initialisation, printing it along with the error message. The [go-metrics](https://github.com/rcrowley/go-metrics) third party package is used for collecting performance metrics. [StatHat](https://www.stathat.com/) is used for collecting metrics such as daily active users. 
+**Termination and restart of operation:** It refers to the conventions to be followed when the program terminates either properly or due to an error. It also includes the subsequent steps taken for recovery during a restart. In golang, concurrency is handled through lightweight threads called goroutines. Each goroutine has its own stack trace. When a component exits due to an error, care is taken to ensure that the stacktraces of all the running goroutines are printed. If an issue such as database corruption is detected during restart the user is notified instead of silently logging to a file.
 
-**Internationalisation:** It refers to the process of allowing the software to support artefacts for different locales. Multi language support was added to Syncthing in v9.0. Syncthing uses Transifex[[17](#transifex)] for internationalisation. Transifex generates JSON formatted files containing the available strings in the languages specified by the person building Syncthing. The Syncthing GUI dynamically loads these translations and uses string interpolation to insert them in the right places. The language can be configured in the configuration UI. 
+**Message Logging and Instrumentation:** For the command line applications, the `log` package available in the golang standard library is used. For the main library, a custom logging package is implemented and this is imported and used by every package. The custom logger supports setting the name of the calling component during initialisation, printing it along with the error message. The [go-metrics](https://github.com/rcrowley/go-metrics) third party package is used for collecting performance metrics. [StatHat](https://www.stathat.com/) is used for collecting metrics such as daily active users.
 
-**Processing configuration parameters:** In the Syncthing library, all configuration is passed through the universal configuration object. This object is passed to all components which can be configured and the components read what they require. They also subscribe to future changes in the object. In the command line application, configuration options are passed through command line flags using the `flags` package found in the golang standard library. Configuration can be passed to the library using JSON or XML config files. When configuration is changed using the GUI or command line tools, these files are also changed. 
+**Internationalisation:** It refers to the process of allowing the software to support artefacts for different locales. Multi language support was added to Syncthing in v9.0. Syncthing uses Transifex[[17](#transifex)] for internationalisation. Transifex generates JSON formatted files containing the available strings in the languages specified by the person building Syncthing. The Syncthing GUI dynamically loads these translations and uses string interpolation to insert them in the right places. The language can be configured in the configuration UI.
+
+**Processing configuration parameters:** In the Syncthing library, all configuration is passed through the universal configuration object. This object is passed to all components which can be configured and the components read what they require. They also subscribe to future changes in the object. In the command line application, configuration options are passed through command line flags using the `flags` package found in the golang standard library. Configuration can be passed to the library using JSON or XML config files. When configuration is changed using the GUI or command line tools, these files are also changed.
 
 **Database interaction:** The database used by Syncthing to store local data is LevelDB. LevelDB unlike SQL databases is a low level storage engine with a key-value interface. Concurrency primitives and other facilities such as transactions are implemented in the `db` component. So, any interaction with the database should go through the `db` component.
 
-**Pull Requests and Issues:** Pull requests and issues follow specific formats defined in the files `PULL_REQUEST_TEMPLATE.md` and `ISSUE_TEMPLATE.md`. When a person either makes a pull request or opens an issue, GitHub displays these templates in the description to be filled[[13](#issuetempl)]. 
+**Pull Requests and Issues:** Pull requests and issues follow specific formats defined in the files `PULL_REQUEST_TEMPLATE.md` and `ISSUE_TEMPLATE.md`. When a person either makes a pull request or opens an issue, GitHub displays these templates in the description to be filled[[13](#issuetempl)].
 
 <div id="codel"></div>
 
@@ -185,11 +185,11 @@ Codeline Model is used to keep an order when it comes to the organization of the
 
 In the source repository[[16]](#src) we can find a tree of various packages and directories. The actual code lives in the `cmd/syncthing`. `lib` directories -contains all packages that make up the parts of syncthing. The web GUI lives in `gui`. A detailed description of the structure can be found in [[15]](#docs).
 
-#### Contributions 
+#### Contributions
 
 In order to contribute to the project, developers should submit a pull request in the GitHub project. This pull request can belong to three different categories[[15]](#docs)- Trivial, Minor or Major- following semantic versioning[[2]](#semver). Depending on these categories, the pull request will follow different requisites before being accepted:
-* Trivial: These may be merged without review by any member of the core team. 
-* Minor: It can be merged on approval by any other developer on the core or maintainers team. 
+* Trivial: These may be merged without review by any member of the core team.
+* Minor: It can be merged on approval by any other developer on the core or maintainers team.
 * Major: It must be reviewed by a member of the maintainers team.
 
 When tests are passed and the pull request is approved, it will be committed into the main code. After a commit, the next step is the launch of a release, which are again classified into three types[15]](#docs):
@@ -215,33 +215,33 @@ Touch points are defined as places where a user may interact with the system. A 
 
 <p align="center">
 	<img src="/syncthing/images-syncthing/UI_syncthing.PNG" alt="Syncthing UI" width="650"/>
-</p> 
+</p>
 
 *Figure 6: Syncthing home screen*
 
 Syncthing developers divide the web UI into two main groups: folder view and device view.
 
 #### Folder View
-This is the left side of the interface shown in [Figure 6](#figure6), that shows the ID and the current state of all configured folders. Clicking on the folder name causes the section to expand to show more detailed folder information like its folder path and the devices that the folder is shared with. It also shows two buttons **Rescan** - for forcing a rescan, and **Edit** - for editing the configuration. Furthermore, a folder can be in any one of the following states: 
+This is the left side of the interface shown in [Figure 6](#figure6), that shows the ID and the current state of all configured folders. Clicking on the folder name causes the section to expand to show more detailed folder information like its folder path and the devices that the folder is shared with. It also shows two buttons **Rescan** - for forcing a rescan, and **Edit** - for editing the configuration. Furthermore, a folder can be in any one of the following states:
 + **Unknown** - while GUI is loading,
-      
+
 + **Unshared** - when you have not shared this folder,
-      
+
 + **Stopped** - when the folder has experienced an error,
-      
+
 + **Scanning** - while Syncthing is looking in the folder for local changes,
-      
+
 + **Up to Date** - when the folder is in sync with the rest of the cluster,
 
 + **Syncing** - when the device is downloading changes from network.
 
-Among these folder details you can see the current "Global State" and "Local State" summaries as well as the amount of "Out of Sync" data if the folder state is not up to date. 
+Among these folder details you can see the current "Global State" and "Local State" summaries as well as the amount of "Out of Sync" data if the folder state is not up to date.
 
-**Global State** 
-This indicates how much data the fully up to date folder contains. This is basically the sum of the newest versions of all files from all connected devices. 
+**Global State**
+This indicates how much data the fully up to date folder contains. This is basically the sum of the newest versions of all files from all connected devices.
 
-**Local State** 
-This shows how much data the folder actually contains right now. This can be either more or less than the global state, if the folder is currently synchronising with other devices. 
+**Local State**
+This shows how much data the folder actually contains right now. This can be either more or less than the global state, if the folder is currently synchronising with other devices.
 
 **Out of Sync**
 This shows how much data needs to be synchronized from other devices. This is basically the sum of all out of sync files - if you already have parts of such a file, or an older version of the file, less data than this will need to be transferred over the network.
@@ -273,7 +273,7 @@ Codebeat organizes its reports in three sections: Complexity, Code Issues and Du
 
 <p align="center">
 	<img src="/syncthing/images-syncthing/technical-debt-complexity.png" alt="Technical Debt Complexity" width="650"/>
-</p> 
+</p>
 
 *Figure 7: Fragment of namespaces ordered by complexity*
 
@@ -287,7 +287,7 @@ Codebeat organizes its reports in three sections: Complexity, Code Issues and Du
 
 *Figure 8: Fragment of namespaces ordered by code issues*
 
-* **Duplication**: In Codebeat, this metric gives suggestions of duplicated pieces of code that should be redesigned to avoid this issue. Although we can see several cases in [Figure 9](#figure9), if we dive deeper in the [Codebeat full analysis](https://codebeat.co/projects/github-com-syncthing-syncthing), we can see that none of the detected duplication is considered critical: they are just warnings. These issues are most likely small duplications difficult to avoid, and as so they are not urgent issues that should be tackled immediately. 
+* **Duplication**: In Codebeat, this metric gives suggestions of duplicated pieces of code that should be redesigned to avoid this issue. Although we can see several cases in [Figure 9](#figure9), if we dive deeper in the [Codebeat full analysis](https://codebeat.co/projects/github-com-syncthing-syncthing), we can see that none of the detected duplication is considered critical: they are just warnings. These issues are most likely small duplications difficult to avoid, and as so they are not urgent issues that should be tackled immediately.
 
 <div id="figure9"></div>
 
@@ -313,7 +313,7 @@ Syncthing requires every contributor to include tests for both Minor commits - w
 
 *Figure 10: Code coverage results*
 
-Furthermore Jenkins provides the code coverage results for each package in the application as shown in [Figure 11](#figure11). As we can see, several packages under 'lib' directory have a 100% coverage. However, there are also few packages like 'lib/relay/protocol' with 0% code coverage and this is because the test files in these directories are empty. Writing tests for these directories would increase the overall code coverage of the application to a great extent. 
+Furthermore Jenkins provides the code coverage results for each package in the application as shown in [Figure 11](#figure11). As we can see, several packages under 'lib' directory have a 100% coverage. However, there are also few packages like 'lib/relay/protocol' with 0% code coverage and this is because the test files in these directories are empty. Writing tests for these directories would increase the overall code coverage of the application to a great extent.
 
 <div id="figure11"></div>
 
@@ -339,7 +339,7 @@ By studying the lines denoted by the red highlights, we can see that methods dea
 
 Technical debt is quite low in Syncthing. In the collaboration guidelines it is specified that, before merging a Pull Request, the proposed code should pass with 0 errors several linters regarding style and syntax, so the project does not present these kind of issues. Also, they have been very careful with their interfaces, and the duplicates are not high priority issues since they usually have strong reasons to repeat some code. The technical debt in this project lays in its complexity: high cyclomatic complexity, too many lines of codes, too many functions or too deep block nesting. Our suggestion will be to redesign the most complex packages (such as `main`, `protocol` library or `model` library) in order to reduce its complexity and improve its performance.
 
-As for testing debt, from the analysis it is evident that even though the project on a whole has a very good code coverage, there is still some room for improvement. However, in general all source files are tested and a number of automatic tests are run on the code when a pull request is triggered and hence there is no major testing debt here. Another potential testing debt that is evident from the analysis is that the framework consists of a large number of css files which are relatively harder to test. But one could easily automate the testing of certain UI features like proper scaling of GUI elements when resizing a webpage, verification of navigations etc. Finally, we also noticed that apart from testing Syncthing at a unit level, the developers have also included few integration tests. However, these tests are mostly aimed at System Integration testing (SIT). The other aspects of the system like security and performance are neither tested nor scheduled for later testing, thereby posing another potential testing debt. 
+As for testing debt, from the analysis it is evident that even though the project on a whole has a very good code coverage, there is still some room for improvement. However, in general all source files are tested and a number of automatic tests are run on the code when a pull request is triggered and hence there is no major testing debt here. Another potential testing debt that is evident from the analysis is that the framework consists of a large number of css files which are relatively harder to test. But one could easily automate the testing of certain UI features like proper scaling of GUI elements when resizing a webpage, verification of navigations etc. Finally, we also noticed that apart from testing Syncthing at a unit level, the developers have also included few integration tests. However, these tests are mostly aimed at System Integration testing (SIT). The other aspects of the system like security and performance are neither tested nor scheduled for later testing, thereby posing another potential testing debt.
 
 <div id="evolu"></div>
 
@@ -384,7 +384,7 @@ In this chapter we have analysed Synchting by first using different views and mo
 7. <div id="support"/>Syncthing Helpful Members. https://forum.syncthing.net/badges/126/very-helpful </div>
 8. <div id="relays"/>Syncthing Relays. http://relays.syncthing.net/ </div>
 9. <div id="manifest"/>Syncthing Manifest. https://github.com/syncthing/syncthing/blob/master/vendor/manifest </div>
-10. <div id="goals"/>Syncthing. The Syncthing Goals. https://github.com/syncthing/syncthing/blob/master/GOALS.md. 
+10. <div id="goals"/>Syncthing. The Syncthing Goals. https://github.com/syncthing/syncthing/blob/master/GOALS.md.
 11. <div id="effgo"/>Effective Go. https://golang.org/doc/effective_go.html </div>
 12. <div id="init"/>Separation of Initialization and Construction. Stack Overflow. http://softwareengineering.stackexchange.com/questions/206086/separation-of-construction-and-initialization. </div>
 13. <div id="issuetempl"/>Issue Templates. https://help.github.com/articles/creating-an-issue-template-for-your-repository/ </div>
