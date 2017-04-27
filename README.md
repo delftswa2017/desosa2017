@@ -63,7 +63,7 @@ The students assessed the current debt in the systems and provided proposals on 
 
 Last but not least, the students tried to make themselves useful by contributing to the actual projects.
 Many pull requests have been opened, including documentation improvements ([Scrapy #2636][Scrapy 2636]), bug fixes ([Jupyter #2220][Jupyter 2220]), style / tooling fixes ([yarn #2725][yarn 2725]) or even feature implementations ([JabRef #2610][JabRef 2610], [JUnit5 #723][JUnit5 723]).
-Doing these contributions the students had the ability to interact with the community; the often discussed with other developers and architects of the systems. This provided them insights in the architectural trade-offs made in these systems.
+With these contributions the students had the ability to interact with the community; they often discussed with other developers and architects of the systems. This provided them insights in the architectural trade-offs made in these systems.
 
 [JabRef 2610]: https://github.com/JabRef/jabref/pull/2610
 [JUnit5 723]: https://github.com/junit-team/junit5/pull/723
