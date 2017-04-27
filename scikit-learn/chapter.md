@@ -4,7 +4,7 @@ By [N.Bakker](https://github.com/i-am-xhy), [R.Kharisnawan](https://github.com/r
 
 _Delft University of Technology, 2016_
 
-![](/images-team-scikit-learn/scikit-learn-logo.png)
+![](images-team-scikit-learn/scikit-learn-logo.png)
 
 ## _Abstract_ {#abstract}
 
@@ -75,7 +75,7 @@ Users are those who eventually use the system. Several examples of users are Spo
 
 With the categorization of stakeholders in the method proposed by Rozanski & Woods \[2\], we can find relevant stakeholders for most categories. However, it is noticeable that many stakeholders appear in many different categories in some way. In this section, a new categorization of the stakeholders is introduced to make the categories more distinct and the roles less intertwined. This categorization is less generally applicable, since it's tailored to scikit-learn. The different categories are contributors, users, funders and competitors.
 
-![](/images-team-scikit-learn/stakeholder.jpg)  
+![](images-team-scikit-learn/stakeholder.jpg)  
 _Figure 1: Visualization of the stakeholder categories for scikit-learn._
 
 ### Contributors
@@ -110,7 +110,7 @@ Because of this complexity, they also need to handle their Integrators with extr
 
 Figure 2 shows the quadrants of power and interest of scikit-learn stakeholders. The x-axis determines interest of stakeholders to scikit-learn which is divided into low and high interest. The interest of stakeholders is demonstrated by their willingness to explore, use, or contribute to the library. Contributions could be in the form of funding or taking part in development. The y-axis determines the power of stakeholders which is also divided into low and high power. Power is related to how influential the stakeholder is in scikit-learn's past, current, and future development. Therefore, the most powerful entities are in the upper-right quadrant and the least powerful ones in the opposite lower-left quadrant. As an example, Andreas Müller is in the upper-right quadrant because he has been the release manager since 2016, which indicates his high interest and influence in the development process. On the other hand, David and Matthieu were founders of scikit-learn \[1\] but they are not active in the development any more. Thus, they are classified in the high interest and low power area.
 
-![](/images-team-scikit-learn/powerinterest.png)  
+![](images-team-scikit-learn/powerinterest.png)  
 _Figure 2: Power-Interest grid._
 
 # Views
@@ -129,7 +129,7 @@ Scikit-learn was developed to provide easier implementation of data analysis met
 
 Figure 3 describes the relationship between scikit-learn and its environment. It consists of ten external entity types which are related to scikit-learn. Each entity has a specific relationship to the library, for example users use scikit-learn or GitHub manages versioning and issue tracking for scikit-learn. Each specific entity inside an entity type may have a different weight of closeness to the library depending on their interactions, for example INRIA may have a stronger relation compared to Paris-Saclay Center for Data Science because they are still sponsoring scikit-learn at the time of writing.
 
-![](/images-team-scikit-learn/contextview_2.png)
+![](images-team-scikit-learn/contextview_2.png)
 
 _Figure 3: Context View._
 
@@ -143,12 +143,12 @@ The development viewpoint discussed here is about scikit-learn's module structur
 The module structure model defines the organization of the system’s source code and related external systems, in terms of the modules into which the individual source files are collected and the dependencies among these modules \[2\]. In Figure 4 layers are identified for scikit-learn with each layer consisting of one or more module\(s\). These layers are:
 
 * Domain layer: consisting of all main functionality modules: data transformations \[29\], data loader \[30\], model selection \[31\], supervised learning \[32\], and unsupervised learning \[33\].
-* Utility layer: consisting of modules that support basic functionality that can be used in domain layer, such as testing, validation, preprocessing, sparse tool, and external configuration. 
+* Utility layer: consisting of modules that support basic functionality that can be used in domain layer, such as testing, validation, preprocessing, sparse tool, and external configuration.
 * Platform layer, which contains modules of the required packages, such as python \[34\], NumPy \[35\], and SciPy \[36\].
 * Build tool layer, which contains build modules \[37\] to build the library. Each module consists of files to download, install, testing, or setting the required library.
-  Dependency of one layer to the other layer\(s\) is demonstrated by a dashed arrow which points to the destination of the required layer. As an example, the utility layer uses all libraries available from python, NumPy, SciPy, and Pandas by importing them in the module. In addition, there are explicit intermodule dependencies for all modules in the domain layer for python because all files under each module requires python. 
+  Dependency of one layer to the other layer\(s\) is demonstrated by a dashed arrow which points to the destination of the required layer. As an example, the utility layer uses all libraries available from python, NumPy, SciPy, and Pandas by importing them in the module. In addition, there are explicit intermodule dependencies for all modules in the domain layer for python because all files under each module requires python.
 
-![alt tag](/images-team-scikit-learn/modules_model.jpeg)  
+![alt tag](images-team-scikit-learn/modules_model.jpeg)  
 _Figure 4: Modules Structure Model._
 
 This model answers the first concern of Rozanski and Woods addressed by the development view \[2\] by giving a better understanding of the module organization. Each module consists of hundred, possibly thousands, of source files and even more lines of code, which are used to implement libraries or functional elements. As a software architect it is useful to know the generic view of a system before going too much into detail. By analyzing through this model, we understand better in which way scikit-learn has been managed and the depencies between modules are clearly highlighted. In this library, a module is usually representated by a folder in the sklearn directory\[9\].
@@ -159,7 +159,7 @@ Another good thing that can be inferred by this model is how to arrange code in 
 
 The deployment view is what looks into how the program is expected to operate in live operation. It will show what "hidden" dependencies scikit-learn has, it's runtime environment and lastly the required specialist knowledge for \(parts of\) scikit-learn.
 
-![alt tag](/images-team-scikit-learn/deployment_view.png)  
+![alt tag](images-team-scikit-learn/deployment_view.png)  
 _Figure 3A: the deployment view for scikit-learn_
 
 ### Dependencies
@@ -198,8 +198,8 @@ To use Scikit-learn\('s full potential\) a lot of specialist knowledge is requir
 One of important perspective of implementing machine learning library is computational performance. There are two computational performance metrics that can be used: latency and throughput at prediction time. Optimization is usually done to minimize latency and maximize throughput but it can hurt prediction accuracy.
 
 ### Prediction latency
-Prediction latency is measured as the elapsed time necessary to make a prediction (e.g. in micro-seconds) \[38\]. There are four main factors that influence the prediction latecy: number of features, input data representation and sparsity, model complexity, feature extraction. 
-Number of features affects memory consumption, which shows number of basic operations, such as multiplications for vector-matrix products. Matrix of M instances with N features will result O(NxM) space complexity. 
+Prediction latency is measured as the elapsed time necessary to make a prediction (e.g. in micro-seconds) \[38\]. There are four main factors that influence the prediction latecy: number of features, input data representation and sparsity, model complexity, feature extraction.
+Number of features affects memory consumption, which shows number of basic operations, such as multiplications for vector-matrix products. Matrix of M instances with N features will result O(NxM) space complexity.
 In sparse input data representation, optimization using sparse format is essential to make performance better by not storing zeros which will lead to less memory consumption. As a rule of thumb you can consider that if the sparsity ratio is greater than 90% you can probably benefit from sparse formats \[38\].
 Model complexity will lead to more predictive power and latency. Increasing predictive power is usually interesting, but for many applications we would better not increase prediction latency too much \[38\].
 In many real world applications the feature extraction process (i.e. turning raw data like database rows or network packets into numpy arrays) governs the overall prediction time \[38\]. In many cases it is thus recommended to carefully time and profile your feature extraction code as it may be a good place to start optimizing when your overall latency is too slow for your application.
@@ -412,7 +412,7 @@ We found 76 occurrences of _TODO_ comments, spread out over 48 files. Four of th
 
 The following picture sums up how well this method works for discussing technical debt:
 
-![](/images-team-scikit-learn/FixMeSoon.PNG)  
+![](images-team-scikit-learn/FixMeSoon.PNG)  
 _Figure 16: “FIXME” comment added long ago, which is still present in the code now._
 
 ### Testing debt
@@ -425,13 +425,13 @@ The major contributors of scikit-learn have agreed upon approximately 90% covera
 
 We have also made a barplot where it is easier to see the different coverage scores for the different modules. We can identify the big difference of code coverage between the datasets module and the other modules.
 
-![](/images-team-scikit-learn/codecovw.jpg)
+![](images-team-scikit-learn/codecovw.jpg)
 
 _Figure 17: Code coverage about different modules ordered._
 
 In addition, the project of scikit-learn relies on integration testing services like Travis CI \[14\], circleci \[12\] and AppVeyor \[13\]. It is a common procedure of the scikit-learn testing procedure to report the results of tests on continuous integration \(CI\) platforms. We can see an example of successful and unsuccessful testing on a PR in the figure below. All PRs need to pass all five check tests from different CI platforms before it gets merged: ci/circleci, codecov/patch, codecov/project, continuous-integration/appveyor/pr, and continuous-integration/travis-ci/pr. Thus, all changes in scikit-learn are well-tested and it reduces the risk. Also, it helps the reviewers to make decisions about which PR should be merged and to give constructive advice to the authors in order to fix PR.
 
-![](/images-team-scikit-learn/integration.png)  
+![](images-team-scikit-learn/integration.png)  
 _Figure 18: Tests on different CI platforms._
 
 **Testing results on CI platforms.**
@@ -529,4 +529,3 @@ In the beginning of the chapter the different stakeholders of scikit-learn were 
 \[37\] [https://github.com/scikit-learn/scikit-learn/tree/master/build\_tools](https://github.com/scikit-learn/scikit-learn/tree/master/build_tools)
 
 \[38\] [http://scikit-learn.org/stable/modules/computational_performance.html](http://scikit-learn.org/stable/modules/computational_performance.html)
-
