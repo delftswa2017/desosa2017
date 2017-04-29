@@ -113,19 +113,19 @@ We would like to thank:
 
 ## Further Reading
 
-1. Arie van Deursen, Alex Nederlof, and Eric Bouwers. Teaching Software Architecture: with GitHub! [avandeursen.com][teaching-swa], December 2013.
-2. Nick Rozanski and Eoin Woods. [Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives][rw]. Addison-Wesley, 2012, 2nd edition.
-3. Sven Apel, Don Batory, Christian Kästner, Gunter Saake. [Feature-Oriented Software Product Lines: Concepts and Implementation][fospl]. Springer-Verlag, 2013.
-4. Eric Bouwers. [Metric-based Evaluation of Implemented Software Architectures][bouwers]. PhD Thesis, Delft University of Technology, 2013.
+1. Arie van Deursen, Maurício Aniche, Joop Aué, Rogier Slag, Michael de Jong, Alex Nederlof, Eric Bouwers. [A Collaborative Approach to Teach Software Architecture][sigcse]. 48th ACM Technical Symposium on Computer Science Education (SIGCSE), 2017.
+2. Arie van Deursen, Alex Nederlof, and Eric Bouwers. Teaching Software Architecture: with GitHub! [avandeursen.com][teaching-swa], December 2013.
+3. Arie van Deursen, Maurício Aniche, Joop Aué (editors). Delft Students on Software Architecture: [DESOSA 2016], 2016.
+4. Arie van Deursen and Rogier Slag (editors). Delft Students on Software Architecture: DESOSA 2015. [delftswa.github.io][desosa2015], 2015.
 5. Amy Brown and Greg Wilson (editors). [The Architecture of Open Source Applications][aosa]. Volumes 1-2, 2012.
-6. Arie van Deursen and Rogier Slag (editors). Delft Students on Software Architecture: DESOSA 2015. [delftswa.github.io][desosa2015], 2015.
+6. Nick Rozanski and Eoin Woods. [Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives][rw]. Addison-Wesley, 2012, 2nd edition.
 
+
+[DESOSA 2016]: https://www.gitbook.com/book/delftswa/desosa2016/details
+[sigcse]: https://pure.tudelft.nl/portal/en/publications/a-collaborative-approach-to-teaching-software-architecture(0c7f2aeb-f2d6-4c56-9ab7-5f47f73d133f).html
 [teaching-swa]: http://avandeursen.com/2013/12/30/teaching-software-architecture-with-github/
 [rw]: http://www.viewpoints-and-perspectives.info/
 [aosa]: http://aosabook.org/
-[fospl]: http://link.springer.com/book/10.1007/978-3-642-37521-7
-[bouwers]: http://repository.tudelft.nl/view/ir/uuid:6b65c5f5-398c-4a41-8806-31c638b1891c/
-
 
 ## Copyright and License
 
