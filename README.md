@@ -74,7 +74,7 @@ With these contributions the students had the ability to interact with the commu
 
 The students have written a collaborative chapter on some of the contributions made during the course. It can be found in the dedicated [contributions chapter][contrib-chapter].
 
-[contrib-chapter]: (contributions-chapter/chapter.md)
+[contrib-chapter]: contributions-chapter/chapter.md
 
 ## Feedback
 
