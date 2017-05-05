@@ -11,19 +11,18 @@
 [Sander van den Oever]: https://github.com/sandervdo
 
 We are proud to present
-_Delft Students on Software Architecture_, a collection of 27 architectural descriptions of open source software systems written by students from Delft University of Technology during a [master-level course][in4315] taking place in the spring of 2017.
+_Delft Students on Software Architecture_, a collection of 21 architectural descriptions of open source software systems written by students from Delft University of Technology during a [master-level course][in4315] taking place in the spring of 2017.
 
 [in4315]: http://www.studiegids.tudelft.nl/a101_displayCourse.do?course_id=38330
 
 In this course, teams of approximately 4 students could adopt a project of choice on GitHub.
 The projects selected had to be sufficiently complex and actively maintained (one or more pull requests merged per day).
-The systems are from a wide range of domains, including testing frameworks ([Mockito], [JUnit5]), editors ([Neovim], [VSCode]), music ([Beets]), and visualisation ([Kibana]).
+The systems are from a wide range of domains, including testing frameworks ([Mockito], [JUnit5]), editors ([Neovim], [VSCode]) and visualisation ([Kibana]).
 
 [mockito]: http://site.mockito.org/
 [junit5]: http://junit.org/junit5/
 [neovim]: https://neovim.io/
 [vscode]: https://code.visualstudio.com/
-[beets]: http://beets.io/
 [kibana]: https://www.elastic.co/products/kibana
 
 During an 8-week period, the students spent one third of their time on this course, and engaged with these systems in order to understand and describe their software architecture.
