@@ -11,7 +11,7 @@
 [Sander van den Oever]: https://github.com/sandervdo
 
 We are proud to present
-_Delft Students on Software Architecture_, a collection of 27 architectural descriptions of open source software systems written by students from Delft University of Technology during a [master-level course][in4315] taking place in the spring of 2017.
+_Delft Students on Software Architecture_, a collection of 21 architectural descriptions of open source software systems written by students from Delft University of Technology during a [master-level course][in4315] taking place in the spring of 2017.
 
 [in4315]: http://www.studiegids.tudelft.nl/a101_displayCourse.do?course_id=38330
 
