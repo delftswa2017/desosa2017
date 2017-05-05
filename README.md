@@ -17,13 +17,12 @@ _Delft Students on Software Architecture_, a collection of 21 architectural desc
 
 In this course, teams of approximately 4 students could adopt a project of choice on GitHub.
 The projects selected had to be sufficiently complex and actively maintained (one or more pull requests merged per day).
-The systems are from a wide range of domains, including testing frameworks ([Mockito], [JUnit5]), editors ([Neovim], [VSCode]), music ([Beets]), and visualisation ([Kibana]).
+The systems are from a wide range of domains, including testing frameworks ([Mockito], [JUnit5]), editors ([Neovim], [VSCode]) and visualisation ([Kibana]).
 
 [mockito]: http://site.mockito.org/
 [junit5]: http://junit.org/junit5/
 [neovim]: https://neovim.io/
 [vscode]: https://code.visualstudio.com/
-[beets]: http://beets.io/
 [kibana]: https://www.elastic.co/products/kibana
 
 During an 8-week period, the students spent one third of their time on this course, and engaged with these systems in order to understand and describe their software architecture.
