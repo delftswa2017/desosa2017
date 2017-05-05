@@ -374,7 +374,8 @@ When fixes for these bugs are merged into master, they are added to the version 
 After that, the changes are added to npm, and the CI builds and deploys the new version.
 
 #### Feature Flags
-<div id="feature-flags" />
+<div id="feature-flags"></div>
+
 As mentioned before, before adding a new feature, the RFC process is followed.
 When a new feature is being developed it is wrapped in a feature flag.
 This means that this feature is not used by default in the Yarn application, but can be enabled by enabling the corresponding flag.
