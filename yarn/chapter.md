@@ -145,7 +145,7 @@ Yarn is implemented in JavaScript that runs on [Node.js](https://nodejs.org/en/)
 The packages a user can install are retrieved from the npm registry.
 [Flow.js](https://github.com/flowjs/) is used to typecheck the code.
 
-For continuous integration (CI), [Travis CI](https://github.com/travis-ci), [CircleCI](https://github.com/circleci) and [AppVeyor](https://github.com/appveyor) are used.
+For continuous integration (CI), [Travis CI](https://github.com/travis-ci), [CircleCI](https://github.com/circleci), [AppVeyor](https://github.com/appveyor) and [Jenkins](https://jenkins.io/) are used.
 These three services are not only used for continuous integration, they are also functioning as separate integration tests to check compatibility.
 The community of Yarn exists on [Twitter](https://twitter.com/yarnpkg), [Facebook](https://www.facebook.com/yarnpkg), [Discord](https://discord.gg/yarnpkg), [GitHub](https://github.com/yarnpkg) and on their [own site](https://yarnpkg.com/lang/en/) (where the documentation also exists).
 
@@ -331,13 +331,14 @@ The overall coverage can be inspected after all tests are executed.
 At the time of writing, the coverage is around 60%, which could be improved.
 
 #### Ensuring Continuous Code Quality
-One notable thing on the Yarn GitHub page is the usage of three different CI services, namely Travis CI, CircleCI and AppVeyor.
+One notable thing on the Yarn GitHub page is the usage of four different CI services, namely Travis CI, CircleCI, AppVeyor and Jenkins.
 Normally, one service is enough to check whether all tests succeed.
 In the case of Yarn, however, every CI service has additional functionality as a platform test.
 If the build fails on one of the services, this could indicate a platform specific bug.
 In practice, it often occurs that one of the CI services fails.
 This is caused by timeout errors that we also experienced locally.
 The failing test suite probably depends on an active internet connection and a slight delay in this has a probability to fail the test.
+Lastly, Jenkins also does nightly end-to-end tests in a Ubuntu Docker container [[11](#jenkins)]
 
 ### Release Management
 <div id="release-management"></div>
@@ -367,7 +368,7 @@ This slow down has not yet happened at the time of writing.
 
 The fast release process is largely automated by [@bestander].
 The master branch is taken and a new version-stable branch is created along with a tag.
-CI is triggered and builds a .tar file, that is deployed to GitHub releases.
+A Jenkins build is triggered and builds a .tar file, that is deployed to GitHub releases.
 Then, [@bestander] tests it on internal Facebook repositories.
 Any bugs found will be reported in issues.
 When fixes for these bugs are merged into master, they are added to the version branch.
@@ -508,6 +509,7 @@ With the adoption of Yarn in the ecosystem, the transparent RFC process, and the
 9. <div id="techdebtseaman"/>Carolyn Seaman. Measuring and Monitoring Technical Debt, University of Maryland Baltimore County. https://pdfs.semanticscholar.org/81c0/8b976f959b092f3768c74c4c307cba55a853.pdf. March 27, 2013.
 10. <div id="maintainability"/>Arie van Deursen. Think Twice Before Using the “Maintainability Index”. https://avandeursen.com/2014/08/29/think-twice-before-using-the-maintainability-index/ August 29, 2014. 
 <!-- /Tech debt -->
+11. <div id="jenkins"/>Yarn Jenkins builds https://build.dan.cx/view/Yarn/ May 5, 2017.
 
 
 [@arcanis]: https://github.com/arcanis
