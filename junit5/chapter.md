@@ -704,7 +704,7 @@ Software Systems Architecture: Working with Stakeholders Using Viewpoints and Pe
 [http://junit.org/junit5/docs/current/user-guide/#extensions](http://junit.org/junit5/docs/current/user-guide/#extensions), access date: 03-04-2017<br/>
 <a name="35" ></a> 
 35. Tweet on Indiegogo sponsoring by Sam Brannen,
-[https://twitter.com/sam_brannen/status/861201601876422656](https://twitter.com/sam_brannen/status/861201601876422656), access date: 07-05-2017<br/>
+[https://twitter.com/sam_brannen/status/861202719293530113](https://twitter.com/sam_brannen/status/861202719293530113), access date: 07-05-2017<br/>
 
 
 
