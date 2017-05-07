@@ -176,7 +176,7 @@ interest in the development of the JUnit 5 framework. The most important stakeho
 are 'the big 5'. These are the five main contributors we identified above. You can see the corresponding stakeholder
 grid we have created in Fig. 1.
 
-![Power Interest Grid](https://cloud.githubusercontent.com/assets/12841723/24619748/5966a9d6-189b-11e7-851f-a5f01eaccbd5.png)
+![Power Interest Grid](https://cloud.githubusercontent.com/assets/12841723/25782629/f252a44c-334e-11e7-9a75-6f17a8bfa287.png)
 *Fig. 1: The power to interest grid for JUnit 5 stakeholders*
 
 <a name="context-view" ></a>
@@ -190,13 +190,13 @@ JUnit 4 and JUnit 5.
 ### OTA4J
 An interesting new development is the creation of the 'Open Test Alliance for the JVM'.
 This alliance aims to create a standardised way of test assertion failures and errors. This allows IDEs to improve the
-way different testing frameworks are integrated. The alliance was initiated by the architects of JUnit. And there are
-already quite some parties on board, apart from JUnit, and the IDEs there are several (competing) testing frameworks
-that want to work together to achieve this goal. In Fig. 2 we have visualised the different parties that
-are involved. <br/>
+way different testing frameworks are integrated. The alliance was initiated by the architects of JUnit. Several parties, 
+including IDEs and several (competing) testing frameworks have been contacted about the initiative. In Fig. 2 we have 
+visualised the different parties that have been contacted. It should be noted that these parties are not necessarily 
+involved with the initiative (yet). <br/>
 <img alt="OTA4J" src="https://cloud.githubusercontent.com/assets/12841723/23342746/31e11e70-fc60-11e6-94fe-89a04d54955f.png" width="300px" />
 <br/>
-*Fig. 2: All parties that are part of the OTA4J.*
+*Fig. 2: All parties that have been contacted about the OTA4J.*
 
 ### Context View Visualisation
 Taking the issues mentioned above and our initial stakeholder analysis into account, we created a context view of the
