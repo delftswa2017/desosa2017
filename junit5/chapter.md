@@ -71,7 +71,8 @@ the JUnit 5 system <a href="#1">[1]</a>.  In the sections below we will identify
 Acquirers can be seen as business sponsors and are in of JUnit 5's case mainly external investors.
 The development of JUnit 5 has started with the launch of a crowd funding campaign on Indiegogo <a href="#2">[2]</a>.
 Therefore all of the companies or individuals that funded the campaign can (to a certain extent) be marked as acquirers.
-We would like to name American Express as a separate acquirer because they are the main sponsor of the Indiegogo campaign.
+We would like to name American Express and Pivotal as separate acquirers because they are the main sponsor and main 
+contributor of the Indiegogo campaign.
 
 ### Assessors
 Assessors are stakeholders that oversee whether legal constraints are complied with.
@@ -161,7 +162,7 @@ the features that JUnit provides. There are quite a few of these ecosystem enhan
   * Spring
 
 Especially Spring is an interesting stakeholder here because one of the main developers of JUnit,
-@[sbrannen](https://github.com/sbrannen), is also the owner of the Spring Framework.
+@[sbrannen](https://github.com/sbrannen), is also a main contributor of the Spring Framework.
 
 ### Competitors
 While JUnit is the largest testing framework for the JVM, it is not the only one. There are several other
@@ -202,14 +203,16 @@ are involved. <br/>
 Taking the issues mentioned above and our initial stakeholder analysis into account, we created a context view of the
 system, as is visible in Fig. 3.
 
-![Context View](https://cloud.githubusercontent.com/assets/12841723/23343910/a747eaaa-fc73-11e6-93a1-24f27d5e90a5.png)
+![Context View](https://cloud.githubusercontent.com/assets/12841723/25781903/140581ea-3340-11e7-9d7e-64852c82c560.png)
 <br/>
 *Fig. 3: The context view for  JUnit 5.*
 
 You can see the main contributors of JUnit 5 (and to a certain extent JUnit 4) as the most important stakeholders, 
 because they decide which features are included and are not. 
-Furthermore we have decided to include American Express as an acquirer because they were the main contributor to the
-Indiegogo campaign that initiated the development of JUnit 5 as mentioned before.
+Furthermore we have decided to include American Express as an acquirer because they were one of the main sponsors of the
+Indiegogo campaign that initiated the development of JUnit 5 as mentioned before. We have also included Pivotal as 
+acquirer because the were one of the main contributors to the Indiegogo campaign; they contributed cash as well as 6 weeks
+of developer time for the development of lambda <a href="#35">[35]</a>.
 
 Noteworthy is the relation between JUnit 4 and JUnit 5 as respectively predecessor and successor, we talk about this
 in more detail in the evolution perspective. We have tried to
@@ -699,6 +702,11 @@ Software Systems Architecture: Working with Stakeholders Using Viewpoints and Pe
 <a name="34" ></a> 
 34. The JUnit 5 user guide, extensions,
 [http://junit.org/junit5/docs/current/user-guide/#extensions](http://junit.org/junit5/docs/current/user-guide/#extensions), access date: 03-04-2017<br/>
+<a name="35" ></a> 
+35. Tweet on Indiegogo sponsoring by Sam Brannen,
+[https://twitter.com/sam_brannen/status/861201601876422656](https://twitter.com/sam_brannen/status/861201601876422656), access date: 07-05-2017<br/>
+
+
 
 <!--
 <a name="x" ></a> 
