@@ -71,8 +71,7 @@ the JUnit 5 system <a href="#1">[1]</a>.  In the sections below we will identify
 Acquirers can be seen as business sponsors and are in of JUnit 5's case mainly external investors.
 The development of JUnit 5 has started with the launch of a crowd funding campaign on Indiegogo <a href="#2">[2]</a>.
 Therefore all of the companies or individuals that funded the campaign can (to a certain extent) be marked as acquirers.
-We would like to name American Express and Pivotal as separate acquirers because they are the main sponsor and main 
-contributor of the Indiegogo campaign.
+We would like to name American Express as the main sponsor and Pivotal as the main contributor of the Indiegogo campaign.
 
 ### Assessors
 Assessors are stakeholders that oversee whether legal constraints are complied with.
