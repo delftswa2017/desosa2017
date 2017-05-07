@@ -210,7 +210,7 @@ You can see the main contributors of JUnit 5 (and to a certain extent JUnit 4) a
 because they decide which features are included and are not. 
 Furthermore we have decided to include American Express as an acquirer because they were one of the main sponsors of the
 Indiegogo campaign that initiated the development of JUnit 5 as mentioned before. We have also included Pivotal as 
-acquirer because the were one of the main contributors to the Indiegogo campaign; they contributed cash as well as 6 weeks
+acquirer because they were one of the main contributors to the Indiegogo campaign; they contributed cash as well as 6 weeks
 of developer time for the development of lambda <a href="#35">[35]</a>.
 
 Noteworthy is the relation between JUnit 4 and JUnit 5 as respectively predecessor and successor, we talk about this
