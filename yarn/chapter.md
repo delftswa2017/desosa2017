@@ -1,4 +1,6 @@
 # Yarn
+By [Tim van der Lippe](https://github.com/timvdlippe), [Chris Langhout](https://github.com/clanghout), [Gijs Weterings](https://github.com/gijsweterings) and [Chak Shun Yu](https://github.com/keraito).
+
 ![team-logo](images-yarn/teamyarnreadme.png)
 
 *Delft University of Technology*
